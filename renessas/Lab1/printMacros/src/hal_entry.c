@@ -22,7 +22,6 @@
 ***********************************************************************************************************************/
 
 #include "hal_data.h"
-
 /*******************************************************************************************************************//**
  * @brief  Blinky example application
  *
@@ -31,23 +30,27 @@
  *
  **********************************************************************************************************************/
 
-void printMacros();
+extern void printMacros();
+extern void initialise_monitor_handles(void);
 
 void hal_entry(void) {
+    initialise_monitor_handles();
 
-	/* Define the units to be used with the software delay function */
-	const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;
-	/* Set the blink frequency (must be <= bsp_delay_units */
+    /* Define the units to be used with the software delay function */
+    const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;
+    /* Set the blink frequency (must be <= bsp_delay_units */
     const uint32_t freq_in_hz = 2;
-	/* Calculate the delay in terms of bsp_delay_units */
+    /* Calculate the delay in terms of bsp_delay_units */
     const uint32_t delay = bsp_delay_units/freq_in_hz;
-	/* LED type structure */
+    /* LED type structure */
     bsp_leds_t leds;
-	/* LED state variable */
+    /* LED state variable */
     ioport_level_t level = IOPORT_LEVEL_HIGH;
 
     /* Get LED information for this board */
     R_BSP_LedsGet(&leds);
+
+    printMacros();
 
     /* If this board has no LEDs then trap here */
     if (0 == leds.led_count)
@@ -76,7 +79,4 @@ void hal_entry(void) {
         /* Delay */
         R_BSP_SoftwareDelay(delay, bsp_delay_units);
     }
-
-    void printMacros();
-
 }
