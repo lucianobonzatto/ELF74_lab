@@ -30,6 +30,9 @@
  * Only references two other modules including the BSP, IOPORT.
  *
  **********************************************************************************************************************/
+
+void printMacros();
+
 void hal_entry(void) {
 
 	/* Define the units to be used with the software delay function */
@@ -73,4 +76,7 @@ void hal_entry(void) {
         /* Delay */
         R_BSP_SoftwareDelay(delay, bsp_delay_units);
     }
+
+    void printMacros();
+
 }

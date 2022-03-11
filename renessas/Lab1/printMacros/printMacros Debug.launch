@@ -4,7 +4,14 @@
     <intAttribute key="com.renesas.cdt.core.connectionTimeout" value="30"/>
     <stringAttribute key="com.renesas.cdt.core.initCommands" value=""/>
     <stringAttribute key="com.renesas.cdt.core.ipAddress" value="localhost"/>
+    <stringAttribute key="com.renesas.cdt.core.jtagDevice" value="J-Link ARM"/>
     <stringAttribute key="com.renesas.cdt.core.jtagDeviceId" value="com.renesas.hardwaredebug.rz.jlink"/>
+    <listAttribute key="com.renesas.cdt.core.listGDBExe">
+        <listEntry value="arm-none-eabi-gdb"/>
+    </listAttribute>
+    <listAttribute key="com.renesas.cdt.core.listGDBLaunchName">
+        <listEntry value="main"/>
+    </listAttribute>
     <stringAttribute key="com.renesas.cdt.core.optionInitCommands" value=""/>
     <intAttribute key="com.renesas.cdt.core.portNumber" value="61234"/>
     <stringAttribute key="com.renesas.cdt.core.runCommands" value=""/>
@@ -74,4 +81,5 @@
         <listEntry value="4"/>
     </listAttribute>
     <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+    <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>

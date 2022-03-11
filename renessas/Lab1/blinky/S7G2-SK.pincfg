@@ -903,11 +903,11 @@
   <v1:configSetting configurationId="analog0.avcc0" altId="analog0.avcc0.avcc0">
     <v1:connectionSetting altId="avcc0.avcc0"/>
   </v1:configSetting>
-  <v1:configSetting configurationId="vss" altId="vss.vss">
-    <v1:connectionSetting altId="system0.vss.vss"/>
-  </v1:configSetting>
   <v1:configSetting configurationId="usbhsdp" altId="usbhsdp.usbhs0.usbhsdp">
     <v1:connectionSetting altId="usbhs0.dp.usbhsdp"/>
+  </v1:configSetting>
+  <v1:configSetting configurationId="vss" altId="vss.vss">
+    <v1:connectionSetting altId="system0.vss.vss"/>
   </v1:configSetting>
   <v1:configSetting configurationId="usbhsrref" altId="usbhsrref.usbhs0.usbhsrref">
     <v1:connectionSetting altId="usbhs0.rref.usbhsrref"/>
