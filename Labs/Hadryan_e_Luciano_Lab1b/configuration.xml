@@ -123,6 +123,10 @@
       <description>S7G2_SK Board Support Files</description>
       <originalPack>Renesas.Synergy_board_s7g2_sk.2.2.0.pack</originalPack>
     </component>
+    <component apiversion="" class="Projects" condition="" group="all" subgroup="Blinky" variant="" vendor="Renesas" version="2.2.0">
+      <description>Simple application that blinks an LED. No RTOS included</description>
+      <originalPack>Renesas.SynergyBlinky.2.2.0.pack</originalPack>
+    </component>
     <component apiversion="" class="BSP" condition="" group="s7g2" subgroup="device" variant="R7FS7G27H3A01CFC" vendor="Renesas" version="2.2.0">
       <description>Board support package for R7FS7G27H3A01CFC</description>
       <originalPack>Renesas.Synergy_mcu_s7g2.2.2.0.pack</originalPack>
@@ -134,10 +138,6 @@
     <component apiversion="" class="BSP" condition="" group="s7g2" subgroup="ssp" variant="" vendor="Renesas" version="2.2.0">
       <description>Board support package for S7G2</description>
       <originalPack>Renesas.Synergy_mcu_s7g2.2.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Projects" condition="" group="all" subgroup="Blinky" variant="" vendor="Renesas" version="2.2.0">
-      <description>Simple application that blinks an LED. No RTOS included</description>
-      <originalPack>Renesas.SynergyBlinky.2.2.0.pack</originalPack>
     </component>
   </synergyComponentSelection>
     

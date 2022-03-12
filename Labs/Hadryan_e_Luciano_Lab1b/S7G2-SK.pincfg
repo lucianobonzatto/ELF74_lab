@@ -903,11 +903,11 @@
   <v1:configSetting configurationId="analog0.avcc0" altId="analog0.avcc0.avcc0">
     <v1:connectionSetting altId="avcc0.avcc0"/>
   </v1:configSetting>
-  <v1:configSetting configurationId="usbhsdp" altId="usbhsdp.usbhs0.usbhsdp">
-    <v1:connectionSetting altId="usbhs0.dp.usbhsdp"/>
-  </v1:configSetting>
   <v1:configSetting configurationId="vss" altId="vss.vss">
     <v1:connectionSetting altId="system0.vss.vss"/>
+  </v1:configSetting>
+  <v1:configSetting configurationId="usbhsdp" altId="usbhsdp.usbhs0.usbhsdp">
+    <v1:connectionSetting altId="usbhs0.dp.usbhsdp"/>
   </v1:configSetting>
   <v1:configSetting configurationId="usbhsrref" altId="usbhsrref.usbhs0.usbhsrref">
     <v1:connectionSetting altId="usbhs0.rref.usbhsrref"/>
@@ -1005,10 +1005,10 @@
   <v1:configSetting configurationId="usbdm" altId="usbdm.usbfs0.usbdm">
     <v1:connectionSetting altId="usbfs0.dm.usbdm"/>
   </v1:configSetting>
-  <v1:configSetting configurationId="usbdp" altId="usbdp.usbfs0.usbdp">
-    <v1:connectionSetting altId="usbfs0.dp.usbdp"/>
-  </v1:configSetting>
   <v1:configSetting configurationId="vss1usbhs" altId="vss1usbhs.usbhs0.vss1usbhs">
     <v1:connectionSetting altId="usbhs0.vss1.vss1usbhs"/>
+  </v1:configSetting>
+  <v1:configSetting configurationId="usbdp" altId="usbdp.usbfs0.usbdp">
+    <v1:connectionSetting altId="usbfs0.dp.usbdp"/>
   </v1:configSetting>
 </v1:pinSettings>

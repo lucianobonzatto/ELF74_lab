@@ -35,3 +35,4 @@ ewarm
 Debug
 settings
 *.dep
+/.metadata/
