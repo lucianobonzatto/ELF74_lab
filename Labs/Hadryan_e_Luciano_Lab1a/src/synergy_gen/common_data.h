@@ -7,10 +7,10 @@
 #include "r_cgc_api.h"
 #include "r_fmi.h"
 #include "r_fmi_api.h"
-#include "r_elc.h"
-#include "r_elc_api.h"
 #include "r_ioport.h"
 #include "r_ioport_api.h"
+#include "r_elc.h"
+#include "r_elc_api.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -18,10 +18,10 @@ extern "C" {
 extern const cgc_instance_t g_cgc;
 /** FMI on FMI Instance. */
 extern const fmi_instance_t g_fmi;
-/** ELC Instance */
-extern const elc_instance_t g_elc;
 /** IOPORT Instance */
 extern const ioport_instance_t g_ioport;
+/** ELC Instance */
+extern const elc_instance_t g_elc;
 void g_common_init(void);
 #ifdef __cplusplus
 } /* extern "C" */
