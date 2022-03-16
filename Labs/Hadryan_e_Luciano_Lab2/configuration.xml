@@ -122,6 +122,10 @@
       <description>S7G2_SK Board Support Files</description>
       <originalPack>Renesas.Synergy_board_s7g2_sk.2.2.0.pack</originalPack>
     </component>
+    <component apiversion="" class="Projects" condition="" group="all" subgroup="Blinky" variant="" vendor="Renesas" version="2.2.0">
+      <description>Simple application that blinks an LED. No RTOS included</description>
+      <originalPack>Renesas.SynergyBlinky.2.2.0.pack</originalPack>
+    </component>
     <component apiversion="" class="BSP" condition="" group="s7g2" subgroup="device" variant="R7FS7G27H3A01CFC" vendor="Renesas" version="2.2.0">
       <description>Board support package for R7FS7G27H3A01CFC</description>
       <originalPack>Renesas.Synergy_mcu_s7g2.2.2.0.pack</originalPack>
@@ -134,12 +138,12 @@
       <description>Board support package for S7G2</description>
       <originalPack>Renesas.Synergy_mcu_s7g2.2.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Projects" condition="" group="all" subgroup="Blinky" variant="" vendor="Renesas" version="2.2.0">
-      <description>Simple application that blinks an LED. No RTOS included</description>
-      <originalPack>Renesas.SynergyBlinky.2.2.0.pack</originalPack>
-    </component>
     <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="2.2.0">
       <description>General Purpose Timer: Provides=[Timer ,GPT]</description>
+      <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="2.2.0">
+      <description>External IRQ: Provides=[External IRQ]</description>
       <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
     </component>
   </synergyComponentSelection>
@@ -158,7 +162,7 @@
     <module id="module.driver.fmi_on_fmi.0">
       <property id="module.driver.fmi.name" value="g_fmi"/>
     </module>
-    <module id="module.driver.timer_on_gpt.1996330750">
+    <module id="module.driver.timer_on_gpt.671567466">
       <property id="module.driver.timer.name" value="g_timer0"/>
       <property id="module.driver.timer.channel" value="8"/>
       <property id="module.driver.timer.mode" value="module.driver.timer.mode.mode_one_shot"/>
@@ -175,12 +179,23 @@
       <property id="module.driver.timer.p_callback" value="timerCallback"/>
       <property id="module.driver.timer.irq_ipl" value="board.icu.common.irq.priority4"/>
     </module>
+    <module id="module.driver.external_irq_on_icu.11948783">
+      <property id="module.driver.external_irq.name" value="g_external_irq0"/>
+      <property id="module.driver.external_irq.channel" value="11"/>
+      <property id="module.driver.external_irq.trigger" value="module.driver.external_irq.trigger.trig_rising"/>
+      <property id="module.driver.external_irq.filter_enable" value="module.driver.external_irq.filter_enable.false"/>
+      <property id="module.driver.external_irq.pclk_div" value="module.driver.external_irq.pclk_div.pclk_div_by_64"/>
+      <property id="module.driver.external_irq.interrupt_enable" value="module.driver.external_irq.interrupt_enable.true"/>
+      <property id="module.driver.external_irq.p_callback" value="switchCallback"/>
+      <property id="module.driver.external_irq.irq_ipl" value="board.icu.common.irq.priority5"/>
+    </module>
     <context id="_hal.0">
-      <stack module="module.driver.elc_on_elc.0"/>
-      <stack module="module.driver.cgc_on_cgc.0"/>
       <stack module="module.driver.fmi_on_fmi.0"/>
       <stack module="module.driver.ioport_on_ioport.0"/>
-      <stack module="module.driver.timer_on_gpt.1996330750"/>
+      <stack module="module.driver.cgc_on_cgc.0"/>
+      <stack module="module.driver.elc_on_elc.0"/>
+      <stack module="module.driver.timer_on_gpt.671567466"/>
+      <stack module="module.driver.external_irq_on_icu.11948783"/>
     </context>
     <config id="config.driver.cgc">
       <property id="config.driver.cgc.param_checking_enable" value="config.driver.cgc.param_checking_enable.bsp"/>
@@ -195,6 +210,9 @@
     </config>
     <config id="config.driver.gpt">
       <property id="config.driver.gpt.param_checking_enable" value="config.driver.gpt.param_checking_enable.bsp"/>
+    </config>
+    <config id="config.driver.icu">
+      <property id="config.driver.icu.param_checking_enable" value="config.driver.icu.param_checking_enable.bsp"/>
     </config>
     <config id="config.driver.fmi">
       <property id="config.driver.fmi.param_checking_enable" value="config.driver.fmi.param_checking_enable.bsp"/>
