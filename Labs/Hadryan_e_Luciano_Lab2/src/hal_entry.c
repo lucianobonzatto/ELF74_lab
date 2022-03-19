@@ -51,6 +51,7 @@ void hal_entry(void) {
         // wait initial second
         timerSet = 0;
         g_timer0.p_api->periodSet(g_timer0.p_ctrl, 1, TIMER_UNIT_PERIOD_SEC);
+        g_timer0.p_api->reset(g_timer0.p_ctrl);
         g_timer0.p_api->start(g_timer0.p_ctrl);
         while(!timerSet)
         {}
@@ -62,6 +63,7 @@ void hal_entry(void) {
         timerSet = 0;
         switchSet = 0;
         g_timer0.p_api->periodSet(g_timer0.p_ctrl, 3, TIMER_UNIT_PERIOD_SEC);
+        g_timer0.p_api->reset(g_timer0.p_ctrl);
         g_timer0.p_api->start(g_timer0.p_ctrl);
 
         printf("GO!\n");
@@ -74,7 +76,6 @@ void hal_entry(void) {
             unsigned long int timeCount;
             g_timer0.p_api->counterGet(g_timer0.p_ctrl, &timeCount);
             printf("You won! Your reaction time: %lf s\n", (float)timeCount/120000000.0f);
-            break;
         }
     }
 }
