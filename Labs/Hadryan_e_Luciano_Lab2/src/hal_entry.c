@@ -11,7 +11,7 @@
 
 extern void initialise_monitor_handles(void);
 
-void setLeds(bsp_leds_t leds, ioport_level_t level);
+void setLeds(bsp_leds_t leds, ioport_level_t level, int id);
 
 volatile int timerSet = 0;
 volatile int switchSet = 0;
@@ -26,10 +26,16 @@ void switchCallback(external_irq_callback_args_t *p_args) {
     switchSet = 1;
 }
 
-void setLeds(bsp_leds_t leds, ioport_level_t level) {
-    for(uint32_t i = 0; i < leds.led_count; i++) {
-        g_ioport.p_api->pinWrite(leds.p_leds[i], level);
+void setLeds(bsp_leds_t leds, ioport_level_t level, int id) {
+    if(id == -1){
+        for(uint32_t i = 0; i < leds.led_count; i++) {
+            g_ioport.p_api->pinWrite(leds.p_leds[i], level);
+        }
     }
+    else{
+        g_ioport.p_api->pinWrite(leds.p_leds[id], level);
+    }
+
 }
 
 void hal_entry(void) {
@@ -37,6 +43,7 @@ void hal_entry(void) {
 
     bsp_leds_t leds;
 	R_BSP_LedsGet(&leds);
+	setLeds(leds, IOPORT_LEVEL_HIGH, -1);
 
     // setup timer interruption
     g_timer0.p_api->open(g_timer0.p_ctrl, g_timer0.p_cfg);
@@ -46,7 +53,7 @@ void hal_entry(void) {
 
     while(1) {
         // set leds off
-        setLeds(leds, IOPORT_LEVEL_HIGH);
+        setLeds(leds, IOPORT_LEVEL_HIGH, 0);
 
         // wait initial second
         timerSet = 0;
@@ -57,7 +64,7 @@ void hal_entry(void) {
         {}
 
         // set leds on
-        setLeds(leds, IOPORT_LEVEL_LOW);
+        setLeds(leds, IOPORT_LEVEL_LOW, 0);
 
         // start 3 seconds second
         timerSet = 0;
