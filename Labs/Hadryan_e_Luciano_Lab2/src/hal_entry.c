@@ -19,13 +19,11 @@ volatile int switchSet = 0;
 void timerCallback(timer_callback_args_t *p_args) {
     (void) p_args;
     timerSet = 1;
-    // printf("Timer Set\n");
 }
 
 void switchCallback(external_irq_callback_args_t *p_args) {
     (void) p_args;
     switchSet = 1;
-    // printf("Switch Set\n");
 }
 
 void setLeds(bsp_leds_t leds, ioport_level_t level) {
@@ -45,8 +43,6 @@ void hal_entry(void) {
     g_timer0.p_api->reset(g_timer0.p_ctrl);
     // setup switch button interruption
     g_external_irq0.p_api->open(g_external_irq0.p_ctrl, g_external_irq0.p_cfg);
-
-    // printf("Starting the game...\n");
 
     while(1) {
         // set leds off
@@ -69,17 +65,15 @@ void hal_entry(void) {
         g_timer0.p_api->start(g_timer0.p_ctrl);
 
         printf("GO!\n");
-        while(!timerSet) {
-            if(switchSet) {
-                unsigned long int timeCount;
-                g_timer0.p_api->counterGet(g_timer0.p_ctrl, &timeCount);
-                printf("You won! Counter: %lf s\n", (float)timeCount/120000000.0f);
-                break;
-            }
-        }
-        if(!switchSet) {
+        while(!switchSet)
+        {}
+
+        if(timerSet) {
             printf("You lose\n");
+        } else {
+            g_timer0.p_api->counterGet(g_timer0.p_ctrl, &timeCount);
+            printf("You won! Your reaction time: %lf s\n", (float)timeCount/120000000.0f);
+            break;
         }
-        // printf("Restarting the game...\n");
     }
 }
