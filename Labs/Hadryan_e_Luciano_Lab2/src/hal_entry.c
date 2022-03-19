@@ -82,7 +82,7 @@ void hal_entry(void) {
         } else {
             unsigned long int timeCount;
             g_timer0.p_api->counterGet(g_timer0.p_ctrl, &timeCount);
-            printf("You won! Your reaction time: %lf s\n", (float)timeCount/120000000.0f);
+            printf("You won! Your reaction time: %lu clock %lf s\n", timeCount, (float)timeCount/120000000.0f);
         }
     }
 }
