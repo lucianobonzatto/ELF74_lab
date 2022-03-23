@@ -23,6 +23,13 @@
 
 #include "hal_data.h"
 
+#define WIDTH0 4
+#define HEIGTH0 3
+
+extern uint16_t EightBitHistogram(uint16_t width, uint16_t height, const uint8_t * p_image, uint16_t * p_hist);
+
+
+
 /*******************************************************************************************************************//**
  * @brief  Blinky example application
  *
@@ -45,6 +52,21 @@ void hal_entry(void) {
 
     /* Get LED information for this board */
     R_BSP_LedsGet(&leds);
+
+
+    uint16_t p_hist[256];
+
+    uint8_t image0[HEIGTH0][WIDTH0] = {
+          {20,16,16,18},
+          {255,255,0,0},
+          {32,32,32,32}
+    };
+
+    EightBitHistogram(WIDTH0, HEIGTH0, image0, p_hist);
+
+
+
+
 
     /* If this board has no LEDs then trap here */
     if (0 == leds.led_count)
