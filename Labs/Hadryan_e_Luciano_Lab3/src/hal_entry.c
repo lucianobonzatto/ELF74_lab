@@ -22,13 +22,14 @@
 ***********************************************************************************************************************/
 
 #include "hal_data.h"
+#include <stdio.h>
 
 #define WIDTH0 4
 #define HEIGTH0 3
 
+extern void initialise_monitor_handles();
+
 extern uint16_t EightBitHistogram(uint16_t width, uint16_t height, const uint8_t * p_image, uint16_t * p_hist);
-
-
 
 /*******************************************************************************************************************//**
  * @brief  Blinky example application
@@ -39,20 +40,7 @@ extern uint16_t EightBitHistogram(uint16_t width, uint16_t height, const uint8_t
  **********************************************************************************************************************/
 void hal_entry(void) {
 
-	/* Define the units to be used with the software delay function */
-	const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;
-	/* Set the blink frequency (must be <= bsp_delay_units */
-    const uint32_t freq_in_hz = 2;
-	/* Calculate the delay in terms of bsp_delay_units */
-    const uint32_t delay = bsp_delay_units/freq_in_hz;
-	/* LED type structure */
-    bsp_leds_t leds;
-	/* LED state variable */
-    ioport_level_t level = IOPORT_LEVEL_HIGH;
-
-    /* Get LED information for this board */
-    R_BSP_LedsGet(&leds);
-
+    initialise_monitor_handles();
 
     uint16_t p_hist[256];
 
@@ -62,37 +50,8 @@ void hal_entry(void) {
           {32,32,32,32}
     };
 
-    EightBitHistogram(WIDTH0, HEIGTH0, image0, p_hist);
+    uint16_t err_ret;
+    err_ret = EightBitHistogram(WIDTH0, HEIGTH0, (unsigned char*)image0, p_hist);
 
-
-
-
-
-    /* If this board has no LEDs then trap here */
-    if (0 == leds.led_count)
-    {
-        while(1);   // There are no LEDs on this board
-    }
-
-    while(1)
-    {
-        /* Determine the next state of the LEDs */
-        if(IOPORT_LEVEL_LOW == level)
-        {
-            level = IOPORT_LEVEL_HIGH;
-        }
-        else
-        {
-            level = IOPORT_LEVEL_LOW;
-        }
-
-        /* Update all board LEDs */
-        for(uint32_t i = 0; i < leds.led_count; i++)
-        {
-            g_ioport.p_api->pinWrite(leds.p_leds[i], level);
-        }
-
-        /* Delay */
-        R_BSP_SoftwareDelay(delay, bsp_delay_units);
-    }
+    printf("err_ret = %u\n", err_ret);
 }

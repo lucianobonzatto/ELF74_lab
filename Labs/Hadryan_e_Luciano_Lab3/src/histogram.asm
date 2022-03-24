@@ -9,4 +9,35 @@
 	.thumb_func
 
 EightBitHistogram:
-	add R0, R0, #01
+	push {lr}
+	mul R0, R0, R1
+	cmp R0, 64000
+	bge fimInvalido
+
+	mov R4, 0
+	mov R5, 0
+loopClear:
+	strh R5, [R3, R4]
+	add R4, #2
+	cmp R4, 512
+	blt loopClear
+
+	mov R4, 0
+	mov R7, 2
+loopFill:
+	ldrb R5, [R2, R4]
+	mul R5, R7
+	ldrh R6, [R3, R5]
+	add R6, 1
+	strh R6, [R3, R5]
+
+	add R4, 1
+	cmp R4, R0
+	blt loopFill
+	pop {lr}
+	BX lr
+
+fimInvalido:
+	mov R0, 0
+	pop {lr}
+	BX lr
