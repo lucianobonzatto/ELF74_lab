@@ -10,19 +10,22 @@
 
 EightBitHistogram:
 	push {lr}
+
 	mul R0, R0, R1
 	cmp R0, 64000
 	bge fimInvalido
 
 	mov R4, 0
 	mov R5, 0
+	mov R6, R3
 loopClear:
-	strh R5, [R3, R4]
+	strh R5, [R6], #2
 	add R4, #2
 	cmp R4, 512
 	blt loopClear
 
 	mov R4, 0
+	mov R5, 0
 	mov R7, 2
 loopFill:
 	ldrb R5, [R2, R4]
