@@ -1,0 +1,13 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+arg1 = $(1)
+export PATH=C:\Renesas\Synergy\e2studio_v2021-10_ssp_v2.2.0\toolchains\gcc_arm\9_2019q4\bin\;C:\Users\lucia\.eclipse\com.renesas.platform_1218958337\Utilities;C:/Renesas/Synergy/e2studio_v2021-10_ssp_v2.2.0/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.12.v20211011-1323/jre/bin/server;C:/Renesas/Synergy/e2studio_v2021-10_ssp_v2.2.0/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.12.v20211011-1323/jre/bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\Program Files\MATLAB\R2021a\bin;C:\Users\lucia\AppData\Local\Microsoft\WindowsApps;C:\Users\lucia\AppData\Local\GitHubDesktop\bin;C:\Renesas\Synergy\e2studio_v2021-10_ssp_v2.2.0\eclipse
+export TCINSTALL=C:\Renesas\Synergy\e2studio_v2021-10_ssp_v2.2.0\toolchains\gcc_arm\9_2019q4$(call arg1,\)
+export CWD=$(CURDIR)
+export AMS_LICENSE_PATH=
+export TC_VERSION=9.2.1.20191025
+export AMS_KEEP_FILE=false
+export PWD=$(CURDIR)
+export GCC_VERSION=9.2.1

@@ -10,6 +10,10 @@
 
 EightBitHistogram:
 	push {lr}
+	push {R4}
+	push {R5}
+	push {R6}
+	push {R7}
 
 	mul R0, R0, R1
 	cmp R0, 64000
@@ -17,15 +21,13 @@ EightBitHistogram:
 
 	mov R4, 0
 	mov R5, 0
-	mov R6, R3
 loopClear:
-	strh R5, [R6], #2
+	strh R5, [R3, R4]
 	add R4, #2
 	cmp R4, 512
 	blt loopClear
 
 	mov R4, 0
-	mov R5, 0
 	mov R7, 2
 loopFill:
 	ldrb R5, [R2, R4]
@@ -37,6 +39,11 @@ loopFill:
 	add R4, 1
 	cmp R4, R0
 	blt loopFill
+
+	pop {R7}
+	pop {R6}
+	pop {R5}
+	pop {R4}
 	pop {lr}
 	BX lr
 
