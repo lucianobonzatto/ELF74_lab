@@ -49,5 +49,11 @@ loopFill:
 
 fimInvalido:
 	mov R0, 0
+
+	pop {R7}
+	pop {R6}
+	pop {R5}
+	pop {R4}
+	pop {lr}
 	pop {lr}
 	BX lr
