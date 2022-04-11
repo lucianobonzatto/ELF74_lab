@@ -1,16 +1,29 @@
-/***********************************************************************************************************************
-* File Name    : blinky_thread_entry.c
-* Description  : This is a very simple example application that blinks all the LEDs on a board.
-***********************************************************************************************************************/
+/**
+ * @file blinky_thread_entry.c
+ * @date 11/04/2022
+ * @authors Hadryan Salles and Luciano Bonzatto
+ */
 
 #include "blinky_thread.h"
 #include <stdio.h>
 
 extern void initialise_monitor_handles(void);
 
-#define SUCCESS_CODE "success"
-#define TO_CODE "to"
-#define ERROR_CODE "error"
+#define SUCCESS_MSG "success"
+#define TO_MSG "time out"
+#define ERROR_MSG "other error"
+#define BUFFER_SIZE 50
+
+const char* error_message(ssp_err_t err) {
+    if (err == 0) {
+        return SUCCESS_MSG;
+    } else if(err == 20) {
+        return TO_MSG;
+    }
+    else {
+        return ERROR_MSG;
+    }
+}
 
 /*******************************************************************************************************************//**
  * @brief  Blinky example application
@@ -43,10 +56,10 @@ void blinky_thread_entry(void)
     }
 
     int32_t i = 0;
-    char* str;
-    uint8_t tx_data[20];
-    uint8_t* tx_uart_data = (uint8_t*)"OI";
-    unsigned char in_buffer[14];
+    const char* str;
+    uint8_t tx_data[BUFFER_SIZE];
+    uint8_t* tx_uart_data = (uint8_t*)"Lab5: Serial Comm over RS-232";
+    unsigned char in_buffer[BUFFER_SIZE];
 
     while (1)
     {
@@ -67,25 +80,14 @@ void blinky_thread_entry(void)
         }
 
         sprintf((char*)tx_data, "%s %4ld\r\n", tx_uart_data, i++);
-        ssp_err_t err = g_sf_comms0.p_api->write(g_sf_comms0.p_ctrl, tx_data, strlen((char*)tx_data+1), TX_WAIT_FOREVER);
-        if (err == 0) {
-            str = SUCCESS_CODE;
-        } else if(err == 20) {
-            str = TO_CODE;
-        } else {
-            str = ERROR_CODE;
-        }
-        printf("TX: %d %s %s\n", err, str, tx_data);
+        ssp_err_t err = g_sf_comms0.p_api->write(g_sf_comms0.p_ctrl, tx_data, strlen((char*)tx_data)+1, TX_WAIT_FOREVER);
+        str = error_message(err);
+        printf("[TX]\n\treturn_code: %d\n\treturn_message: %s\n\tsent_buffer: %s", err, str, tx_data);
 
-        err = g_sf_comms0.p_api->read(g_sf_comms0.p_ctrl, in_buffer, sizeof(in_buffer), 30);
-        if (err == 0) {
-            str = SUCCESS_CODE;
-        } else if(err == 20) {
-            str = TO_CODE;
-        } else {
-            str = ERROR_CODE;
-        }
-        printf("RX: %d %s %s\n", err, str, in_buffer);
+        err = g_sf_comms0.p_api->read(g_sf_comms0.p_ctrl, in_buffer, sizeof(in_buffer), 100);
+        str = error_message(err);
+        printf("[RX]\n\treturn_code: %d\n\treturn_message: %s\n\treceived_buffer: %s", err, str, in_buffer);
+        printf("--------\n");
 
         /* Delay */
         tx_thread_sleep (delay);
