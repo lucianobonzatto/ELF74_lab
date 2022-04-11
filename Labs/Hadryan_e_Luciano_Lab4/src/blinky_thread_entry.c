@@ -8,6 +8,10 @@
 
 extern void initialise_monitor_handles(void);
 
+#define SUCCESS_CODE "success"
+#define TO_CODE "to"
+#define ERROR_CODE "error"
+
 /*******************************************************************************************************************//**
  * @brief  Blinky example application
  *
@@ -38,6 +42,12 @@ void blinky_thread_entry(void)
         while(1);   // There are no leds on this board
     }
 
+    int32_t i = 0;
+    char* str;
+    uint8_t tx_data[20];
+    uint8_t* tx_uart_data = (uint8_t*)"OI";
+    unsigned char in_buffer[14];
+
     while (1)
     {
         /* Determine the next state of the LEDs */
@@ -51,10 +61,31 @@ void blinky_thread_entry(void)
         }
 
         /* Update all board LEDs */
-        for(uint32_t i = 0; i < leds.led_count; i++)
+        for(uint32_t ii = 0; ii < leds.led_count; ii++)
         {
-            g_ioport.p_api->pinWrite(leds.p_leds[i], level);
+            g_ioport.p_api->pinWrite(leds.p_leds[ii], level);
         }
+
+        sprintf((char*)tx_data, "%s %4ld\r\n", tx_uart_data, i++);
+        ssp_err_t err = g_sf_comms0.p_api->write(g_sf_comms0.p_ctrl, tx_data, strlen((char*)tx_data+1), TX_WAIT_FOREVER);
+        if (err == 0) {
+            str = SUCCESS_CODE;
+        } else if(err == 20) {
+            str = TO_CODE;
+        } else {
+            str = ERROR_CODE;
+        }
+        printf("TX: %d %s %s\n", err, str, tx_data);
+
+        err = g_sf_comms0.p_api->read(g_sf_comms0.p_ctrl, in_buffer, sizeof(in_buffer), 30);
+        if (err == 0) {
+            str = SUCCESS_CODE;
+        } else if(err == 20) {
+            str = TO_CODE;
+        } else {
+            str = ERROR_CODE;
+        }
+        printf("RX: %d %s %s\n", err, str, in_buffer);
 
         /* Delay */
         tx_thread_sleep (delay);
