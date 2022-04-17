@@ -8,11 +8,12 @@
 #include <stdio.h>
 
 extern void initialise_monitor_handles(void);
+const char* error_message(ssp_err_t err);
 
 #define SUCCESS_MSG "success"
 #define TO_MSG "time out"
 #define ERROR_MSG "other error"
-#define BUFFER_SIZE 50
+#define QUEUE_SIZE 50
 
 const char* error_message(ssp_err_t err) {
     if (err == 0) {
@@ -25,18 +26,11 @@ const char* error_message(ssp_err_t err) {
     }
 }
 
-/*******************************************************************************************************************//**
- * @brief  Blinky example application
- *
- * Blinks all leds at a rate of 1 second using the the threadx sleep function.
- * Only references two other modules including the BSP, IOPORT.
- *
- **********************************************************************************************************************/
 void blinky_thread_entry(void)
 {
     initialise_monitor_handles();
     /* Define the units to be used with the threadx sleep function */
-	const uint32_t threadx_tick_rate_Hz = 100;
+    const uint32_t threadx_tick_rate_Hz = 100;
     /* Set the blink frequency (must be <= threadx_tick_rate_Hz */
     const uint32_t freq_in_hz = 2;
     /* Calculate the delay in terms of the threadx tick rate */
@@ -55,11 +49,12 @@ void blinky_thread_entry(void)
         while(1);   // There are no leds on this board
     }
 
-    int32_t i = 0;
     const char* str;
-    uint8_t tx_data[BUFFER_SIZE];
+    uint8_t tx_data[QUEUE_SIZE];
     uint8_t* tx_uart_data = (uint8_t*)"Lab5: Serial Comm over RS-232";
-    unsigned char in_buffer[BUFFER_SIZE];
+    unsigned char in_buffer[QUEUE_SIZE];
+
+    g_sf_comms0.p_api->open(g_sf_comms0.p_ctrl, g_sf_comms0.p_cfg);
 
     while (1)
     {
@@ -79,12 +74,12 @@ void blinky_thread_entry(void)
             g_ioport.p_api->pinWrite(leds.p_leds[ii], level);
         }
 
-        sprintf((char*)tx_data, "%s %4ld\r\n", tx_uart_data, i++);
+        sprintf((char*)tx_data, "%s\n", tx_uart_data);
         ssp_err_t err = g_sf_comms0.p_api->write(g_sf_comms0.p_ctrl, tx_data, strlen((char*)tx_data)+1, TX_WAIT_FOREVER);
         str = error_message(err);
         printf("[TX]\n\treturn_code: %d\n\treturn_message: %s\n\tsent_buffer: %s", err, str, tx_data);
 
-        err = g_sf_comms0.p_api->read(g_sf_comms0.p_ctrl, in_buffer, sizeof(in_buffer), 100);
+        err = g_sf_comms0.p_api->read(g_sf_comms0.p_ctrl, in_buffer, strlen((char*)tx_data)+1, 30);
         str = error_message(err);
         printf("[RX]\n\treturn_code: %d\n\treturn_message: %s\n\treceived_buffer: %s", err, str, in_buffer);
         printf("--------\n");

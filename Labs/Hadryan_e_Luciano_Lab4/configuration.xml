@@ -265,7 +265,7 @@
     </config>
     <config id="config.framework.sf_uart_comms">
       <property id="config.framework.sf_comms.param_checking_enable" value="config.framework.sf_comms.param_checking_enable.bsp"/>
-      <property id="config.framework.sf_comms.read_size" value="15"/>
+      <property id="config.framework.sf_comms.read_size" value="50"/>
     </config>
     <config id="config.driver.dtc">
       <property id="config.driver.dtc.param_checking_enable" value="config.driver.dtc.param_checking_enable.bsp"/>
