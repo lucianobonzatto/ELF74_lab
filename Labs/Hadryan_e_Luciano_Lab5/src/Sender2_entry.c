@@ -11,17 +11,30 @@ void Sender2_entry(void)
 {
     /* TODO: add your own code here */
     initialise_monitor_handles();
+    tx_thread_sleep (50);
 
     bsp_leds_t leds;
-    R_BSP_LedsGet(&leds);
-    g_ioport.p_api->pinWrite(leds.p_leds[1], IOPORT_LEVEL_LOW);
     UINT status = 0;
     ULONG msg = 0;
+    R_BSP_LedsGet(&leds);
+    g_ioport.p_api->pinWrite(leds.p_leds[2], IOPORT_LEVEL_HIGH);
+
     while (1)
     {
-        printf("%d sender 2 msg -> %ld\n", status, msg);
-        status = tx_queue_send(&queue0, &msg, TX_WAIT_FOREVER);
+        status = tx_mutex_get(&mutex0, 30);                             //Get ownership of mutex
+        while(status != 0){
+            status = tx_mutex_get(&mutex0, 30);                         //Get ownership of mutex
+        }
+
+        g_ioport.p_api->pinWrite(leds.p_leds[2], IOPORT_LEVEL_LOW);
+
+        status = tx_queue_send(&queue0, &msg, TX_WAIT_FOREVER);         //Send message to message queue
+        printf("%d sender 1 msg -> %ld\n", status, msg);
         tx_thread_sleep (60);
         msg++;
+
+        g_ioport.p_api->pinWrite(leds.p_leds[2], IOPORT_LEVEL_HIGH);
+
+        status = tx_mutex_put(&mutex0);                                 //Release ownership of mutex
     }
 }

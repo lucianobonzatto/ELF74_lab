@@ -9,12 +9,13 @@ void RX_Thread_entry(void)
 {
     /* TODO: add your own code here */
     initialise_monitor_handles();
+    tx_thread_sleep (50);
 
     bsp_leds_t leds;
-    R_BSP_LedsGet(&leds);
-
     UINT status = 0;
-    ULONG msg;
+    ULONG msg = 0;
+    R_BSP_LedsGet(&leds);
+    g_ioport.p_api->pinWrite(leds.p_leds[1], IOPORT_LEVEL_HIGH);
 
     while (1)
     {
