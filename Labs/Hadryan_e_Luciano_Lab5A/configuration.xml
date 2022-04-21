@@ -159,12 +159,12 @@
       <property id="module.driver.fmi.name" value="g_fmi"/>
     </module>
     <context id="_hal.0">
-      <stack module="module.driver.cgc_on_cgc.0"/>
-      <stack module="module.driver.fmi_on_fmi.0"/>
       <stack module="module.driver.ioport_on_ioport.0"/>
+      <stack module="module.driver.cgc_on_cgc.0"/>
       <stack module="module.driver.elc_on_elc.0"/>
+      <stack module="module.driver.fmi_on_fmi.0"/>
     </context>
-    <context id="rtos.threadx.thread.690131653">
+    <context id="rtos.threadx.thread.862672714">
       <property id="_symbol" value="Sender1"/>
       <property id="rtos.threadx.thread.name" value="Sender1"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
@@ -172,7 +172,7 @@
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
-    <context id="rtos.threadx.thread.1446376408">
+    <context id="rtos.threadx.thread.1988482842">
       <property id="_symbol" value="Sender2"/>
       <property id="rtos.threadx.thread.name" value="Sender2"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
@@ -180,7 +180,7 @@
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
-    <context id="rtos.threadx.thread.1050362226">
+    <context id="rtos.threadx.thread.82139389">
       <property id="_symbol" value="RX_Thread"/>
       <property id="rtos.threadx.thread.name" value="RX_Thread"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
@@ -188,19 +188,19 @@
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
-    <context id="rtos.threadx.thread.1411312329">
+    <context id="rtos.threadx.thread.356549371">
       <property id="_symbol" value="obj_define"/>
       <property id="rtos.threadx.thread.name" value="obj_define"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
       <property id="rtos.threadx.thread.priority" value="1"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
-      <object id="rtos.threadx.object.mutex.358970077">
+      <object id="rtos.threadx.object.mutex.1786252538">
         <property id="rtos.threadx.object.mutex.name" value="mutex0"/>
         <property id="rtos.threadx.object.mutex.symbol" value="mutex0"/>
         <property id="rtos.threadx.object.mutex.inherit" value="rtos.threadx.object.mutex.inherit.disabled"/>
       </object>
-      <object id="rtos.threadx.object.queue.135528554">
+      <object id="rtos.threadx.object.queue.612132221">
         <property id="rtos.threadx.object.queue.name" value="queue0"/>
         <property id="rtos.threadx.object.queue.symbol" value="queue0"/>
         <property id="rtos.threadx.object.queue.msg_size" value="1"/>

@@ -20,11 +20,11 @@ void Sender1_entry(void)
 
     while (1)
     {
-        status = tx_mutex_get(&mutex0, 30);                             //Get ownership of mutex
-        while(status != 0){
-            status = tx_mutex_get(&mutex0, 30);                         //Get ownership of mutex
+        while(tx_mutex_get(&mutex0, TX_NO_WAIT) != 0){                          //Get ownership of mutex
+            g_ioport.p_api->pinWrite(leds.p_leds[1], IOPORT_LEVEL_LOW);
         }
 
+        g_ioport.p_api->pinWrite(leds.p_leds[1], IOPORT_LEVEL_HIGH);
         g_ioport.p_api->pinWrite(leds.p_leds[0], IOPORT_LEVEL_LOW);
 
         status = tx_queue_send(&queue0, &msg, TX_WAIT_FOREVER);         //Send message to message queue
@@ -33,7 +33,7 @@ void Sender1_entry(void)
         msg++;
 
         g_ioport.p_api->pinWrite(leds.p_leds[0], IOPORT_LEVEL_HIGH);
-
         status = tx_mutex_put(&mutex0);                                 //Release ownership of mutex
+        tx_thread_sleep (1);                                            //Wait for Sender2 to get the ownership of mutex
     }
 }
