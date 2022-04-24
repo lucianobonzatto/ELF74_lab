@@ -1,4 +1,6 @@
+#include "thread_0.h"
 #include "thread_3.h"
+#include "define_var.c"
 
 /* thread_3 entry function */
 void thread_3_entry(void)

@@ -282,22 +282,22 @@ Synergy Configuration
     Time slicing interval (ticks): 1
     
     Object "queue_0 Queue"
-      Name: queue_0
+      Name: queue 0
       Symbol: queue_0
       Message Size (Words): 1
-      Queue Size (Bytes): 20
+      Queue Size (Bytes): 100
       
     Object "semaphore_0 Semaphore"
-      Name: semaphore_0
+      Name: semaphore 0
       Symbol: semaphore_0
       Initial count: 0
       
     Object "event_flags_0 Event Flags"
-      Name: event_flags_0
+      Name: event flags 0
       Symbol: event_flags_0
       
     Object "mutex_0 Mutex"
-      Name: mutex_0
+      Name: mutex 0
       Symbol: mutex_0
       Priority inheritance: Disabled
       

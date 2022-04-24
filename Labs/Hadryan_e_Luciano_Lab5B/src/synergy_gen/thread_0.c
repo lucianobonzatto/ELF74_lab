@@ -8,7 +8,7 @@ static uint8_t thread_0_stack[1024] BSP_PLACE_IN_SECTION_V2(".stack.thread_0") B
 void tx_startup_err_callback(void *p_instance, void *p_data);
 void tx_startup_common_init(void);
 TX_QUEUE queue_0;
-static uint8_t queue_memory_queue_0[20];
+static uint8_t queue_memory_queue_0[100];
 TX_SEMAPHORE semaphore_0;
 TX_EVENT_FLAGS_GROUP event_flags_0;
 TX_MUTEX mutex_0;
@@ -23,25 +23,25 @@ void thread_0_create(void)
 
     /* Initialize each kernel object. */
     UINT err_queue_0;
-    err_queue_0 = tx_queue_create (&queue_0, (CHAR*) "queue_0", 1, &queue_memory_queue_0, sizeof(queue_memory_queue_0));
+    err_queue_0 = tx_queue_create (&queue_0, (CHAR*) "queue 0", 1, &queue_memory_queue_0, sizeof(queue_memory_queue_0));
     if (TX_SUCCESS != err_queue_0)
     {
         tx_startup_err_callback (&queue_0, 0);
     }
     UINT err_semaphore_0;
-    err_semaphore_0 = tx_semaphore_create (&semaphore_0, (CHAR*) "semaphore_0", 0);
+    err_semaphore_0 = tx_semaphore_create (&semaphore_0, (CHAR*) "semaphore 0", 0);
     if (TX_SUCCESS != err_semaphore_0)
     {
         tx_startup_err_callback (&semaphore_0, 0);
     }
     UINT err_event_flags_0;
-    err_event_flags_0 = tx_event_flags_create (&event_flags_0, (CHAR*) "event_flags_0");
+    err_event_flags_0 = tx_event_flags_create (&event_flags_0, (CHAR*) "event flags 0");
     if (TX_SUCCESS != err_event_flags_0)
     {
         tx_startup_err_callback (&event_flags_0, 0);
     }
     UINT err_mutex_0;
-    err_mutex_0 = tx_mutex_create (&mutex_0, (CHAR*) "mutex_0", TX_NO_INHERIT);
+    err_mutex_0 = tx_mutex_create (&mutex_0, (CHAR*) "mutex 0", TX_NO_INHERIT);
     if (TX_SUCCESS != err_mutex_0)
     {
         tx_startup_err_callback (&mutex_0, 0);
