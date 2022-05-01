@@ -1,10 +1,8 @@
-/*
- * define_var.c
- *
- *  Created on: 24 de abr de 2022
- *      Author: lucia
- */
+#ifndef GLOBALS_H_
+#define GLOBALS_H_
+
 #include "tx_api.h"
+#include "thread_0.h"
 
 ULONG thread_0_counter;
 
@@ -23,3 +21,8 @@ ULONG thread_5_counter;
 ULONG thread_6_counter;
 
 ULONG thread_7_counter;
+
+void thread_3_and_4_entry(ULONG thread_input);
+void thread_6_and_7_entry(ULONG thread_input);
+
+#endif

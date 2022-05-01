@@ -1,6 +1,6 @@
-#include "thread_0.h"
 #include "thread_2.h"
-#include "define_var.c"
+
+#include "globals.h"
 
 /* thread_2 entry function */
 void thread_2_entry(void)
@@ -24,5 +24,5 @@ void thread_2_entry(void)
 
         /* Otherwise, all is okay.  Increment the received message count.  */
         thread_2_messages_received++;
-        }
+    }
 }

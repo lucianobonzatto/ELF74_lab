@@ -1,6 +1,6 @@
-#include "thread_0.h"
 #include "thread_1.h"
-#include "define_var.c"
+
+#include "globals.h"
 
 /* thread_1 entry function */
 void thread_1_entry(void)
