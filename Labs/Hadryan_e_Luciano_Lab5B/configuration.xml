@@ -166,11 +166,11 @@
     </context>
     <context id="rtos.threadx.thread.528736184">
       <property id="_symbol" value="thread_0"/>
-      <property id="rtos.threadx.thread.name" value="thread_0"/>
+      <property id="rtos.threadx.thread.name" value="thread 0"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
       <property id="rtos.threadx.thread.priority" value="1"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="0"/>
       <object id="rtos.threadx.object.queue.1802938608">
         <property id="rtos.threadx.object.queue.name" value="queue 0"/>
         <property id="rtos.threadx.object.queue.symbol" value="queue_0"/>
@@ -194,59 +194,59 @@
     </context>
     <context id="rtos.threadx.thread.1114933203">
       <property id="_symbol" value="thread_1"/>
-      <property id="rtos.threadx.thread.name" value="thread_1"/>
+      <property id="rtos.threadx.thread.name" value="thread 1"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="16"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="4"/>
     </context>
     <context id="rtos.threadx.thread.1699932745">
       <property id="_symbol" value="thread_2"/>
-      <property id="rtos.threadx.thread.name" value="thread_2"/>
+      <property id="rtos.threadx.thread.name" value="thread 2"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="16"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="4"/>
     </context>
     <context id="rtos.threadx.thread.1400187333">
       <property id="_symbol" value="thread_3"/>
-      <property id="rtos.threadx.thread.name" value="thread_3"/>
+      <property id="rtos.threadx.thread.name" value="thread 3"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="8"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="0"/>
     </context>
     <context id="rtos.threadx.thread.416932020">
       <property id="_symbol" value="thread_4"/>
-      <property id="rtos.threadx.thread.name" value="thread_4"/>
+      <property id="rtos.threadx.thread.name" value="thread 4"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="8"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="0"/>
     </context>
     <context id="rtos.threadx.thread.1213312724">
       <property id="_symbol" value="thread_5"/>
-      <property id="rtos.threadx.thread.name" value="thread_5"/>
+      <property id="rtos.threadx.thread.name" value="thread 5"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="4"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="0"/>
     </context>
     <context id="rtos.threadx.thread.806835946">
       <property id="_symbol" value="thread_6"/>
-      <property id="rtos.threadx.thread.name" value="thread_6"/>
+      <property id="rtos.threadx.thread.name" value="thread 6"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="8"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="0"/>
     </context>
     <context id="rtos.threadx.thread.1415317241">
       <property id="_symbol" value="thread_7"/>
-      <property id="rtos.threadx.thread.name" value="thread_7"/>
+      <property id="rtos.threadx.thread.name" value="thread 7"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.priority" value="8"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
-      <property id="rtos.threadx.thread.timeslice" value="1"/>
+      <property id="rtos.threadx.thread.timeslice" value="0"/>
     </context>
     <config id="config.driver.cgc">
       <property id="config.driver.cgc.param_checking_enable" value="config.driver.cgc.param_checking_enable.bsp"/>

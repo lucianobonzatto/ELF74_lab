@@ -19,7 +19,7 @@ void thread_3_create(void)
     /* Initialize each kernel object. */
 
     UINT err;
-    err = tx_thread_create (&thread_3, (CHAR*) "thread_3", thread_3_func, (ULONG) NULL, &thread_3_stack, 1024, 1, 1, 1,
+    err = tx_thread_create (&thread_3, (CHAR*) "thread 3", thread_3_func, (ULONG) NULL, &thread_3_stack, 1024, 8, 8, 0,
                             TX_AUTO_START);
     if (TX_SUCCESS != err)
     {

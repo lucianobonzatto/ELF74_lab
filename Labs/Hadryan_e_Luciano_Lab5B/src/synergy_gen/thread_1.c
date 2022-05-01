@@ -19,8 +19,8 @@ void thread_1_create(void)
     /* Initialize each kernel object. */
 
     UINT err;
-    err = tx_thread_create (&thread_1, (CHAR*) "thread_1", thread_1_func, (ULONG) NULL, &thread_1_stack, 1024, 1, 1, 1,
-                            TX_AUTO_START);
+    err = tx_thread_create (&thread_1, (CHAR*) "thread 1", thread_1_func, (ULONG) NULL, &thread_1_stack, 1024, 16, 16,
+                            4, TX_AUTO_START);
     if (TX_SUCCESS != err)
     {
         tx_startup_err_callback (&thread_1, 0);

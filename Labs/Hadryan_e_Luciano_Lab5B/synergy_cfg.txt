@@ -273,13 +273,13 @@ Synergy Configuration
     Instance "g_elc ELC Driver on r_elc"
       Name [Fixed]: g_elc
       
-  Thread "thread_0"
+  Thread "thread 0"
     Symbol: thread_0
-    Name: thread_0
+    Name: thread 0
     Stack size (bytes): 1024
     Priority: 1
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 0
     
     Object "queue_0 Queue"
       Name: queue 0
@@ -301,60 +301,60 @@ Synergy Configuration
       Symbol: mutex_0
       Priority inheritance: Disabled
       
-  Thread "thread_1"
+  Thread "thread 1"
     Symbol: thread_1
-    Name: thread_1
+    Name: thread 1
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 16
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 4
     
-  Thread "thread_2"
+  Thread "thread 2"
     Symbol: thread_2
-    Name: thread_2
+    Name: thread 2
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 16
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 4
     
-  Thread "thread_3"
+  Thread "thread 3"
     Symbol: thread_3
-    Name: thread_3
+    Name: thread 3
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 8
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 0
     
-  Thread "thread_4"
+  Thread "thread 4"
     Symbol: thread_4
-    Name: thread_4
+    Name: thread 4
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 8
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 0
     
-  Thread "thread_5"
+  Thread "thread 5"
     Symbol: thread_5
-    Name: thread_5
+    Name: thread 5
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 4
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 0
     
-  Thread "thread_6"
+  Thread "thread 6"
     Symbol: thread_6
-    Name: thread_6
+    Name: thread 6
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 8
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 0
     
-  Thread "thread_7"
+  Thread "thread 7"
     Symbol: thread_7
-    Name: thread_7
+    Name: thread 7
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 8
     Auto start: Enabled
-    Time slicing interval (ticks): 1
+    Time slicing interval (ticks): 0
     
   Messaging
