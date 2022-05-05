@@ -164,28 +164,28 @@
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.fmi_on_fmi.0"/>
     </context>
-    <context id="rtos.threadx.thread.1105263580">
-      <property id="_symbol" value="T1"/>
-      <property id="rtos.threadx.thread.name" value="T1"/>
+    <context id="rtos.threadx.thread.1749345494">
+      <property id="_symbol" value="thread_1"/>
+      <property id="rtos.threadx.thread.name" value="Thread 1"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
       <property id="rtos.threadx.thread.priority" value="1"/>
-      <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.disabled"/>
+      <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
-    <context id="rtos.threadx.thread.1917548706">
-      <property id="_symbol" value="T2"/>
-      <property id="rtos.threadx.thread.name" value="T2"/>
+    <context id="rtos.threadx.thread.1338287535">
+      <property id="_symbol" value="thread_2"/>
+      <property id="rtos.threadx.thread.name" value="Thread 2"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="2"/>
-      <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.disabled"/>
+      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
-    <context id="rtos.threadx.thread.869220594">
-      <property id="_symbol" value="T3"/>
-      <property id="rtos.threadx.thread.name" value="T3"/>
+    <context id="rtos.threadx.thread.1582053071">
+      <property id="_symbol" value="thread_3"/>
+      <property id="rtos.threadx.thread.name" value="Thread 3"/>
       <property id="rtos.threadx.thread.stack" value="1024"/>
-      <property id="rtos.threadx.thread.priority" value="3"/>
-      <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.disabled"/>
+      <property id="rtos.threadx.thread.priority" value="1"/>
+      <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="1"/>
     </context>
     <config id="config.driver.cgc">

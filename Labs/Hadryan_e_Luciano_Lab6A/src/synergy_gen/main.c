@@ -2,9 +2,9 @@
 #include "bsp_api.h"
 #include "tx_api.h"
 
-extern void T1_create(void);
-extern void T2_create(void);
-extern void T3_create(void);
+extern void thread_1_create(void);
+extern void thread_2_create(void);
+extern void thread_3_create(void);
 
 uint32_t g_ssp_common_thread_count;
 bool g_ssp_common_initialized;
@@ -59,9 +59,9 @@ void tx_application_define(void *first_unused_memory)
         tx_startup_err_callback (&g_ssp_common_initialized_semaphore, 0);
     }
 
-    T1_create ();
-    T2_create ();
-    T3_create ();
+    thread_1_create ();
+    thread_2_create ();
+    thread_3_create ();
 
 #ifdef TX_USER_ENABLE_TRACE
 					TX_USER_ENABLE_TRACE;

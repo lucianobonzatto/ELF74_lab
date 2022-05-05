@@ -1,8 +1,8 @@
 "Name","Pin","Function","Symbolic Name","Drive Capacity","IRQ","Mode","Output type","Pull up","Port Capabilities"
-"AVCC0","155","","","","","","","",""
-"AVCCUSBHS","26","","","","","","","",""
-"AVSS0","156","","","","","","","",""
-"AVSSUSBHS","28","","","","","","","",""
+"AVCC0","155","ANALOG0_AVCC0","","","","","","",""
+"AVCCUSBHS","26","USBHS0_AVCC","","","","","","",""
+"AVSS0","156","ANALOG0_AVSS0","","","","","","",""
+"AVSSUSBHS","28","USBHS0_AVSS","","","","","","",""
 "P000","169","ADC0_AN00","GPIO29","","","Analog mode","","","ACMPHS0: IVCMP
 ADC0: AN00
 ICU0: IRQ06"
@@ -48,7 +48,7 @@ ADC0: AN06
 ADC1: AN06
 DAC1: DA
 ICU0: IRQ13"
-"P100","132","SPI0_MISO","SPI0__Pin_Option_A_MISOA_A","Medium","None","Peripheral mode","CMOS","None","AGT0: AGTIO
+"P100","132","SCI0_RXD","","Low","None","Peripheral mode","CMOS","None","AGT0: AGTIO
 BUS_ASYNCH_BUS_SDRAM0: D_DQ00
 GLCDC0: LCD_EXTCLK
 GPT_POEG0: GTETRG
@@ -59,7 +59,7 @@ SCI0: RXD
 SCI0: SCL
 SCI1: SCK
 SPI0: MISO"
-"P101","131","SPI0_MOSI","SPI0__Pin_Option_A_MOSIA_A","Medium","None","Peripheral mode","CMOS","None","AGT0: AGTEE
+"P101","131","SCI0_TXD","","Low","None","Peripheral mode","CMOS","None","AGT0: AGTEE
 BUS_ASYNCH_BUS_SDRAM0: D_DQ01
 GLCDC0: LCD_CLK
 GPT_POEG1: GTETRG
@@ -70,7 +70,7 @@ SCI0: SDA
 SCI0: TXD
 SCI1: CTS
 SPI0: MOSI"
-"P102","130","SPI0_RSPCK","SPI0__Pin_Option_A_RSPCKA_A","Medium","","Peripheral mode","CMOS","None","ADC0: ADTRG
+"P102","130","SCI0_SCK","","Low","","Peripheral mode","CMOS","None","ADC0: ADTRG
 AGT0: AGTO
 BUS_ASYNCH_BUS_SDRAM0: D_DQ02
 GLCDC0: LCD_TCON0
@@ -79,7 +79,7 @@ GPT2: GTIOCB
 KINT0: KRM2
 SCI0: SCK
 SPI0: RSPCK"
-"P103","129","SPI0_SSL0","SPI0__Pin_Option_A_SSLA0_A","Medium","","Peripheral mode","CMOS","None","BUS_ASYNCH_BUS_SDRAM0: D_DQ03
+"P103","129","SCI0_CTS","","Low","","Peripheral mode","CMOS","None","BUS_ASYNCH_BUS_SDRAM0: D_DQ03
 GLCDC0: LCD_TCON1
 GPT_OPS0: GTOWUP
 GPT2: GTIOCA
@@ -158,7 +158,7 @@ SSI0: SSIWS"
 "P114","95","","","","","Disabled","","","BUS_ASYNCH_BUS_SDRAM0: A02
 GLCDC0: LCD_DATA09
 SSI0: SSIRXD"
-"P115","96","","","","","Disabled","","","BUS_ASYNCH_BUS_SDRAM0: A01
+"P115","96","GPIO","","Low","","Output mode (Initial Low)","CMOS","","BUS_ASYNCH_BUS_SDRAM0: A01
 GLCDC0: LCD_DATA08
 SSI0: SSITXD"
 "P200","69","","","","","Disabled","","","ICU0: NMI"
@@ -382,7 +382,7 @@ SCI3: SDA
 SCI3: TXD
 USB_FS0: EXICEN
 USB_HS0: EXICEN"
-"P410","41","SCI0_RXD","SCI0_RXD0_SCL0_MISO0","Medium","None","Peripheral mode","CMOS","None","AGT1: AGTOB
+"P410","41","","","","","Disabled","","","AGT1: AGTOB
 CTSU0: TS06
 ETHERC_MII0: ERXD0
 ETHERC_RMII0: RXD1
@@ -394,7 +394,7 @@ SCI0: SCL
 SCI3: SCK
 SDHI0: DAT1
 SPI0: MISO"
-"P411","40","SCI0_TXD","SCI0_TXD0_SDA0_MOSI0","Medium","None","Peripheral mode","CMOS","None","AGT1: AGTOA
+"P411","40","","","","","Disabled","","","AGT1: AGTOA
 CTSU0: TS07
 ETHERC_MII0: ERXD1
 ETHERC_RMII0: RXD0
@@ -406,7 +406,7 @@ SCI0: TXD
 SCI3: CTS
 SDHI0: DAT0
 SPI0: MOSI"
-"P412","39","SCI0_SCK","SCI0_SCK0","High","","Peripheral mode","CMOS","None","CTSU0: TS08
+"P412","39","","","","","Disabled","","","CTSU0: TS08
 ETHERC_MII0: ETXD0
 ETHERC_RMII0: REF50CK
 GPT_OPS0: GTOULO
@@ -504,7 +504,7 @@ SDHI1: CD"
 "P507","147","GPIO","GPIO17","","","Input mode","","None","ADC1: AN19
 SCI5: CTS
 SDHI1: WP"
-"P511","176","","","","","Disabled","","","CAN1: CRX
+"P511","176","IIC2_SDA","","","None","Peripheral mode","CMOS","None","CAN1: CRX
 ETHERC_MII0: TX_ER
 GPT0: GTIOCB
 ICU0: IRQ15
@@ -512,7 +512,7 @@ IIC2: SDA
 PDC0: PCKO
 SCI4: RXD
 SCI4: SCL"
-"P512","175","","","","","Disabled","","","CAN1: CTX
+"P512","175","IIC2_SCL","","","None","Peripheral mode","CMOS","None","CAN1: CTX
 ETHERC_MII0: ETXD2
 GPT0: GTIOCA
 ICU0: IRQ14
@@ -535,11 +535,11 @@ GLCDC0: LCD_DATA04"
 "P607","115","GLCDC0_LCD_DATA04","GLCD_Controller__Pin_Option_B_LCD_DATA04_B","Medium","","Peripheral mode","CMOS","None","GLCDC0: LCD_DATA04"
 "P608","99","GPIO","GPIO7","","","Input mode","","None","BUS_ASYNCH_BUS_SDRAM0: BC_A_DQM00
 GLCDC0: LCD_DATA07"
-"P609","100","","","","","Disabled","","","BUS_ASYNCH_BUS_SDRAM0: CS_CKE1
+"P609","100","GPIO","","Low","","Output mode (Initial Low)","CMOS","","BUS_ASYNCH_BUS_SDRAM0: CS_CKE1
 GLCDC0: LCD_DATA06"
-"P610","101","","","","","Disabled","","","BUS_ASYNCH_BUS_SDRAM0: CS_WE0
+"P610","101","GPIO","","Low","","Output mode (Initial Low)","CMOS","","BUS_ASYNCH_BUS_SDRAM0: CS_WE0
 GLCDC0: LCD_DATA05"
-"P611","102","","","","","Disabled","","","BUS_ASYNCH_BUS_SDRAM0: SDCS"
+"P611","102","GPIO","","Low","","Output mode (Initial Low)","CMOS","","BUS_ASYNCH_BUS_SDRAM0: SDCS"
 "P612","103","","","","","Disabled","","","BUS_ASYNCH_BUS_SDRAM0: D_DQ08"
 "P613","104","GPIO","GPIO37","","","Input mode","","None","BUS_ASYNCH_BUS_SDRAM0: D_DQ09"
 "P614","105","GPIO","GPIO38","","","Input mode","","None","BUS_ASYNCH_BUS_SDRAM0: D_DQ10"
@@ -605,49 +605,49 @@ GLCDC0: LCD_DATA14"
 USB_HS0: VBUSEN"
 "PB01","17","USBHS0_VBUS","USB_High_Speed_USBHS_VBUS","Low","","Peripheral mode","CMOS","None","SCI3: CTS
 USB_HS0: VBUS"
-"PVSSUSBHS","29","","","","","","","",""
-"RES#","67","","","","","","","",""
-"USBDM","46","","","","","","","",""
-"USBDP","47","","","","","","","",""
-"USBHSDM","31","","","","","","","",""
-"USBHSDP","32","","","","","","","",""
-"USBHSRREF","27","","","","","","","",""
-"VBATT","18","","","","","","","",""
-"VCC","110","","","","","","","",""
-"VCC","123","","","","","","","",""
-"VCC","25","","","","","","","",""
-"VCC","138","","","","","","","",""
-"VCC","149","","","","","","","",""
-"VCC","61","","","","","","","",""
-"VCC","171","","","","","","","",""
-"VCC","84","","","","","","","",""
-"VCC","97","","","","","","","",""
-"VCCDCDC","66","","","","","","","",""
-"VCCUSB","48","","","","","","","",""
-"VCCUSBHS","34","","","","","","","",""
-"VCL0","19","","","","","","","",""
-"VCL1","62","","","","","","","",""
-"VCL2","148","","","","","","","",""
-"VCLF","112","","","","","","","",""
-"VLO","64","","","","","","","",""
-"VLO","65","","","","","","","",""
-"VREFH","154","","","","","","","",""
-"VREFH0","158","","","","","","","",""
-"VREFL","153","","","","","","","",""
-"VREFL0","157","","","","","","","",""
-"VSS","22","","","","","","","",""
-"VSS","111","","","","","","","",""
-"VSS","35","","","","","","","",""
-"VSS","124","","","","","","","",""
-"VSS","139","","","","","","","",""
-"VSS","60","","","","","","","",""
-"VSS","170","","","","","","","",""
-"VSS","83","","","","","","","",""
-"VSS","150","","","","","","","",""
-"VSS","63","","","","","","","",""
-"VSS","98","","","","","","","",""
-"VSS1USBHS","33","","","","","","","",""
-"VSS2USBHS","30","","","","","","","",""
-"VSSUSB","45","","","","","","","",""
-"XCIN","20","","","","","","","",""
-"XCOUT","21","","","","","","","",""
+"PVSSUSBHS","29","USBHS0_PVSS","","","","","","",""
+"RES#","67","SYSTEM0_RES","","","","","","",""
+"USBDM","46","USBFS0_DM","","","","","","",""
+"USBDP","47","USBFS0_DP","","","","","","",""
+"USBHSDM","31","USBHS0_DM","","","","","","",""
+"USBHSDP","32","USBHS0_DP","","","","","","",""
+"USBHSRREF","27","USBHS0_RREF","","","","","","",""
+"VBATT","18","SYSTEM0_VBATT","","","","","","",""
+"VCC","110","SYSTEM0_VCC","","","","","","",""
+"VCC","123","SYSTEM0_VCC","","","","","","",""
+"VCC","25","SYSTEM0_VCC","","","","","","",""
+"VCC","138","SYSTEM0_VCC","","","","","","",""
+"VCC","149","SYSTEM0_VCC","","","","","","",""
+"VCC","61","SYSTEM0_VCC","","","","","","",""
+"VCC","171","SYSTEM0_VCC","","","","","","",""
+"VCC","84","SYSTEM0_VCC","","","","","","",""
+"VCC","97","SYSTEM0_VCC","","","","","","",""
+"VCCDCDC","66","SYSTEM0_VCC_DCDC","","","","","","",""
+"VCCUSB","48","USBFS0_VCC","","","","","","",""
+"VCCUSBHS","34","USBHS0_VCC","","","","","","",""
+"VCL0","19","SYSTEM0_VCL0","","","","","","",""
+"VCL1","62","SYSTEM0_VCL1","","","","","","",""
+"VCL2","148","SYSTEM0_VCL2","","","","","","",""
+"VCLF","112","SYSTEM0_VCL_F","","","","","","",""
+"VLO","64","SYSTEM0_VLO","","","","","","",""
+"VLO","65","SYSTEM0_VLO","","","","","","",""
+"VREFH","154","ANALOG0_VREFH","","","","","","",""
+"VREFH0","158","ANALOG0_VREFH0","","","","","","",""
+"VREFL","153","ANALOG0_VREFL","","","","","","",""
+"VREFL0","157","ANALOG0_VREFL0","","","","","","",""
+"VSS","22","SYSTEM0_VSS","","","","","","",""
+"VSS","111","SYSTEM0_VSS","","","","","","",""
+"VSS","35","SYSTEM0_VSS","","","","","","",""
+"VSS","124","SYSTEM0_VSS","","","","","","",""
+"VSS","139","SYSTEM0_VSS","","","","","","",""
+"VSS","60","SYSTEM0_VSS","","","","","","",""
+"VSS","170","SYSTEM0_VSS","","","","","","",""
+"VSS","83","SYSTEM0_VSS","","","","","","",""
+"VSS","150","SYSTEM0_VSS","","","","","","",""
+"VSS","63","SYSTEM0_VSS","","","","","","",""
+"VSS","98","SYSTEM0_VSS","","","","","","",""
+"VSS1USBHS","33","USBHS0_VSS1","","","","","","",""
+"VSS2USBHS","30","USBHS0_VSS2","","","","","","",""
+"VSSUSB","45","USBFS0_VSS","","","","","","",""
+"XCIN","20","CGC0_XCIN","","","","","","",""
+"XCOUT","21","CGC0_XCOUT","","","","","","",""

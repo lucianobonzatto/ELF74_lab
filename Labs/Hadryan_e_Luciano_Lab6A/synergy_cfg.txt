@@ -273,28 +273,28 @@ Synergy Configuration
     Instance "g_fmi FMI Driver on r_fmi"
       Name: g_fmi
       
-  Thread "T1"
-    Symbol: T1
-    Name: T1
+  Thread "Thread 1"
+    Symbol: thread_1
+    Name: Thread 1
     Stack size (bytes): 1024
     Priority: 1
-    Auto start: Disabled
+    Auto start: Enabled
     Time slicing interval (ticks): 1
     
-  Thread "T2"
-    Symbol: T2
-    Name: T2
+  Thread "Thread 2"
+    Symbol: thread_2
+    Name: Thread 2
     Stack size (bytes): 1024
-    Priority: 2
-    Auto start: Disabled
+    Priority: 1
+    Auto start: Enabled
     Time slicing interval (ticks): 1
     
-  Thread "T3"
-    Symbol: T3
-    Name: T3
+  Thread "Thread 3"
+    Symbol: thread_3
+    Name: Thread 3
     Stack size (bytes): 1024
-    Priority: 3
-    Auto start: Disabled
+    Priority: 1
+    Auto start: Enabled
     Time slicing interval (ticks): 1
     
   Messaging

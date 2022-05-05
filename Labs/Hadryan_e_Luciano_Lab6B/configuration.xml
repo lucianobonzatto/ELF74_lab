@@ -198,6 +198,10 @@
       <description>TOUCH_PANEL_CHIP_SX8654 Drivers</description>
       <originalPack>Renesas.Synergy_touch_panel_chip_sx8654.2.2.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_spi" variant="" vendor="Renesas" version="2.2.0">
+      <description>SCI SPI: Provides=[SPI] , Requires=[SCI Common]</description>
+      <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
+    </component>
   </synergyComponentSelection>
   <synergyIcuConfiguration/>
   <synergyMessagingConfiguration/>
@@ -515,6 +519,22 @@
     </module>
     <module id="module.framework.tes.dave2d.794711790"/>
     <module id="module.framework.sf_tes_2d_drw.1681581102"/>
+    <module id="module.driver.spi_on_sci_spi.1798413911">
+      <property id="module.driver.spi.name" value="g_spi_lcdc"/>
+      <property id="module.driver.spi.channel" value="0"/>
+      <property id="module.driver.spi.operating_mode" value="module.driver.spi.operating_mode.mode_master"/>
+      <property id="module.driver.spi.clk_phase" value="module.driver.spi.clk_phase.clk_phase_edge_even"/>
+      <property id="module.driver.spi.clk_polarity" value="module.driver.spi.clk_polarity.clk_polarity_high"/>
+      <property id="module.driver.spi.mode_fault" value="module.driver.spi.mode_fault.mode_fault_error_disable"/>
+      <property id="module.driver.spi.bit_order" value="module.driver.spi.bit_order.bit_order_msb_first"/>
+      <property id="module.driver.spi.bitrate" value="100000"/>
+      <property id="module.driver.spi.bitrate_modulation" value="module.driver.spi.bitrate_modulation.true"/>
+      <property id="module.driver.spi.p_callback" value="g_spi_lcdc_callback"/>
+      <property id="module.driver.spi.rxi_ipl" value="board.icu.common.irq.priority3"/>
+      <property id="module.driver.spi.txi_ipl" value="board.icu.common.irq.priority3"/>
+      <property id="module.driver.spi.tei_ipl" value="board.icu.common.irq.priority3"/>
+      <property id="module.driver.spi.eri_ipl" value="board.icu.common.irq.priority3"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.cgc_on_cgc.0"/>
       <stack module="module.driver.fmi_on_fmi.0"/>
@@ -556,6 +576,16 @@
           </stack>
         </stack>
       </stack>
+      <stack module="module.driver.spi_on_sci_spi.1798413911"/>
+      <object id="rtos.threadx.object.semaphore.1325395027">
+        <property id="rtos.threadx.object.semaphore.name" value="Main Semaphore"/>
+        <property id="rtos.threadx.object.semaphore.symbol" value="g_main_semaphore_lcdc"/>
+        <property id="rtos.threadx.object.semaphore.count" value="0"/>
+      </object>
+      <object id="rtos.threadx.object.flags.912771191">
+        <property id="rtos.threadx.object.flags.name" value="New Event Flags"/>
+        <property id="rtos.threadx.object.flags.symbol" value="g_touch_event_flags"/>
+      </object>
     </context>
     <config id="config.driver.jpeg_decode">
       <property id="config.driver.jpeg_decode.param_checking_enable" value="config.driver.jpeg_decode.param_checking_enable.bsp"/>
@@ -613,6 +643,9 @@
     </config>
     <config id="config.framework.sf_jpeg_decode">
       <property id="config.framework.sf_jpeg_decode.param_checking_enable" value="config.framework.sf_jpeg_decode.param_checking_enable.bsp"/>
+    </config>
+    <config id="config.driver.sci_spi">
+      <property id="config.driver.sci_spi.param_checking_enable" value="config.driver.sci_spi.param_checking_enable.bsp"/>
     </config>
     <config id="config.driver.dtc">
       <property id="config.driver.dtc.param_checking_enable" value="config.driver.dtc.param_checking_enable.bsp"/>
