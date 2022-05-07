@@ -28,8 +28,8 @@ extern const spi_instance_t g_spi_lcdc;
 extern sci_spi_instance_ctrl_t g_spi_lcdc_ctrl;
 extern const sci_spi_extended_cfg g_spi_lcdc_cfg_extend;
 
-#ifndef g_spi_lcdc_callback
-void g_spi_lcdc_callback(spi_callback_args_t *p_args);
+#ifndef g_lcd_spi_callback
+void g_lcd_spi_callback(spi_callback_args_t *p_args);
 #endif
 
 #define SYNERGY_NOT_DEFINED (1)            
