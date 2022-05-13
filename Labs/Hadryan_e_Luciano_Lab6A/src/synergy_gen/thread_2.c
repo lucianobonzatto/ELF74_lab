@@ -19,7 +19,7 @@ void thread_2_create(void)
     /* Initialize each kernel object. */
 
     UINT err;
-    err = tx_thread_create (&thread_2, (CHAR*) "Thread 2", thread_2_func, (ULONG) NULL, &thread_2_stack, 1024, 1, 1, 1,
+    err = tx_thread_create (&thread_2, (CHAR*) "Thread 2", thread_2_func, (ULONG) NULL, &thread_2_stack, 1024, 2, 2, 1,
                             TX_AUTO_START);
     if (TX_SUCCESS != err)
     {

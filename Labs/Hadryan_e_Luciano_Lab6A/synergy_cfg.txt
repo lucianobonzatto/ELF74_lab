@@ -260,6 +260,9 @@ Synergy Configuration
     SSP MCU Information Symbol Name: g_fmi_data
     Part Number Mask: 0xFE00
     
+  Module "Timer Driver on r_gpt"
+    Parameter Checking: Default (BSP)
+    
   HAL
     Instance "g_elc ELC Driver on r_elc"
       Name [Fixed]: g_elc
@@ -281,11 +284,28 @@ Synergy Configuration
     Auto start: Enabled
     Time slicing interval (ticks): 1
     
+    Instance "g_timer0 Timer Driver on r_gpt"
+      Name: g_timer0
+      Channel: 0
+      Mode: Periodic
+      Duty Cycle Range (only applicable in PWM mode): Shortest: 2 PCLK, Longest: (Period - 1) PCLK
+      Period Value: 10
+      Period Unit: Milliseconds
+      Duty Cycle Value: 50
+      Duty Cycle Unit: Unit Raw Counts
+      Auto Start: True
+      GTIOCA Output Enabled: False
+      GTIOCA Stop Level: Pin Level Low
+      GTIOCB Output Enabled: False
+      GTIOCB Stop Level: Pin Level Low
+      Callback: NULL
+      Overflow Interrupt Priority: Disabled
+      
   Thread "Thread 2"
     Symbol: thread_2
     Name: Thread 2
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 2
     Auto start: Enabled
     Time slicing interval (ticks): 1
     
@@ -293,7 +313,7 @@ Synergy Configuration
     Symbol: thread_3
     Name: Thread 3
     Stack size (bytes): 1024
-    Priority: 1
+    Priority: 3
     Auto start: Enabled
     Time slicing interval (ticks): 1
     
