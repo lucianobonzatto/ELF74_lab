@@ -273,7 +273,7 @@ Synergy Configuration
     Parameter Checking: Enabled
     
   Module "External IRQ Driver on r_icu"
-    Parameter Checking: Default (BSP)
+    Parameter Checking: Enabled
     
   Module "I2C Master Driver on r_riic"
     Parameter Checking: Enabled
@@ -340,8 +340,8 @@ Synergy Configuration
       Auto Start: Enable
       Name of touchpanel callback function to be defined by user: touch_panel_v2_callback
       
-      Instance "g_touch_panel_chip_sx8654_0 Touch_panel_chip_sx8654"
-        Name: g_touch_panel_chip_sx8654_0
+      Instance "g_touch_panel_chip_sx8654 Touch_panel_chip_sx8654"
+        Name: g_touch_panel_chip_sx8654
         Horizontal pixel count: 240
         Vertical pixel count: 320
         Reset Port: 06

@@ -1,0 +1,26 @@
+a) Escalonamento por time-slice de 50 ms. Todas as tarefas com mesma prioridade.
+
+Seta no configuration.xml o time-slice para 50ms e as prioridades para 3.
+
+b) Escalonamento sem time-slice e sem preempção. Prioridades estabelecidas no passo 3. A preempção pode ser evitada com o “ preemption threshold” do ThreadX.
+
+Seta o preempt_threshold das três thread para 0, que é a preempçao desabilitada, utilizando o
+
+UINT tx_thread_preemption_change(
+    TX_THREAD *thread_ptr,
+    UINT new_threshold, 
+    UINT *old_threshold);
+
+sendo *thread_ptr a thread que sera retirada a preempçao, new_threshold = 0 e old_threshold um inteiro para retornar ao limite de preempção anterior posteriormente.
+
+c) Escalonamento preemptivo por prioridade.
+
+Seta no configuration.xml o time-slice para 0ms e as prioridades para 1, 2 e 3 respectivamente.
+
+d) Implemente um Mutex compartilhado entre T1 e T3. No início de cada job estas tarefas devem solicitar este mutex e liberá-lo no final. Use mutex sem herança de prioridade. Observe o efeito na temporização das tarefas.
+
+Cria o mutex0 no configuration.xml e usa o, tx_mutex_get(&mutex0, TX_NO_WAIT) na tarefa 3 e 1 para solicitar o mutex antes de piscar o led e o tx_mutex_put(&mutex0) para liberar depois de piscar o led
+
+e) Idem acima, mas com herança de prioridade.
+
+Cria o mutex0 no configuration.xml e usa o, tx_mutex_get(&mutex0, TX_NO_WAIT) na tarefa 3 e 1 para solicitar o mutex antes de piscar o led e o tx_mutex_put(&mutex0) para liberar depois de piscar o led. E Define as prioridades para 1, 2 e 3 respectivamente.

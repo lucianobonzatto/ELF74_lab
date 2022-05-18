@@ -96,17 +96,17 @@ const sf_i2c_cfg_t g_sf_i2c_device0_cfg =
 /* Instance structure to use this module. */
 const sf_i2c_instance_t g_sf_i2c_device0 =
 { .p_ctrl = &g_sf_i2c_device0_ctrl, .p_cfg = &g_sf_i2c_device0_cfg, .p_api = &g_sf_i2c_on_sf_i2c };
-sf_touch_panel_chip_sx8654_instance_ctrl_t g_touch_panel_chip_sx8654_0_ctrl;
-const sf_touch_panel_chip_on_sx8654_cfg_t g_touch_panel_chip_sx8654_0_cfg_extend =
+sf_touch_panel_chip_sx8654_instance_ctrl_t g_touch_panel_chip_sx8654_ctrl;
+const sf_touch_panel_chip_on_sx8654_cfg_t g_touch_panel_chip_sx8654_cfg_extend =
 { .pin = IOPORT_PORT_06_PIN_09,
   .p_lower_lvl_framewrk = &g_sf_i2c_device0,
   .p_lower_lvl_irq = &g_sf_external_irq0,
   .hsize_pixels = 240,
   .vsize_pixels = 320 };
-const sf_touch_panel_chip_cfg_t g_touch_panel_chip_sx8654_0_cfg =
-{ .p_extend = &g_touch_panel_chip_sx8654_0_cfg_extend };
-const sf_touch_panel_chip_instance_t g_touch_panel_chip_sx8654_0 =
-{ .p_ctrl = &g_touch_panel_chip_sx8654_0_ctrl, .p_cfg = &g_touch_panel_chip_sx8654_0_cfg, .p_api =
+const sf_touch_panel_chip_cfg_t g_touch_panel_chip_sx8654_cfg =
+{ .p_extend = &g_touch_panel_chip_sx8654_cfg_extend };
+const sf_touch_panel_chip_instance_t g_touch_panel_chip_sx8654 =
+{ .p_ctrl = &g_touch_panel_chip_sx8654_ctrl, .p_cfg = &g_touch_panel_chip_sx8654_cfg, .p_api =
           &g_sf_touch_panel_chip_sx8654 };
 #if defined(__ICCARM__)
             #define g_sf_touch_panel_err_callback_WEAK_ATTRIBUTE
@@ -118,7 +118,7 @@ void g_sf_touch_panel_err_callback(void *p_instance, void *p_data)
 g_sf_touch_panel_err_callback_WEAK_ATTRIBUTE;
 sf_touch_panel_v2_instance_ctrl_t g_sf_touch_panel_ctrl;
 const sf_touch_panel_v2_extend_cfg_t g_sf_touch_panel_cfg_extend =
-{ .p_chip = &g_touch_panel_chip_sx8654_0 };
+{ .p_chip = &g_touch_panel_chip_sx8654 };
 const sf_touch_panel_v2_cfg_t g_sf_touch_panel_cfg =
 { .hsize_pixels = 240,
   .vsize_pixels = 320,

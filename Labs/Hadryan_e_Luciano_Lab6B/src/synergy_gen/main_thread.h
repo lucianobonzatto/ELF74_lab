@@ -55,7 +55,7 @@ void NULL(external_irq_callback_args_t *p_args);
 extern const sf_external_irq_instance_t g_sf_external_irq0;
 /* SF I2C on SF I2C Instance. */
 extern const sf_i2c_instance_t g_sf_i2c_device0;
-extern const sf_touch_panel_chip_instance_t g_touch_panel_chip_sx8654_0;
+extern const sf_touch_panel_chip_instance_t g_touch_panel_chip_sx8654;
 extern const sf_touch_panel_chip_api_t g_sf_touch_panel_chip_sx8654;
 /** SF Touch Panel V2 on SF Touch Panel V2 Instance. */
 extern const sf_touch_panel_v2_instance_t g_sf_touch_panel;

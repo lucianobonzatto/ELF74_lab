@@ -229,7 +229,7 @@
       <property id="module.framework.sf_touch_panel_v2.callback" value="touch_panel_v2_callback"/>
     </module>
     <module id="module.external.ex_touch_panel_chip_sx8654_on_ex_touch_panel_chip_sx8654.6383987">
-      <property id="module.external.ex_touch_panel_chip.name" value="g_touch_panel_chip_sx8654_0"/>
+      <property id="module.external.ex_touch_panel_chip.name" value="g_touch_panel_chip_sx8654"/>
       <property id="module.external.ex_touch_panel_chip_hsize.hsize_pixels" value="240"/>
       <property id="module.external.ex_touch_panel_chip_vsize.vsize_pixels" value="320"/>
       <property id="module.external.ex_touch_panel_chip_sx8654.port" value="module.external.ex_touch_panel_chip_sx8654.port.PORT_06"/>
@@ -619,7 +619,7 @@
       <property id="config.framework.sf_i2c_v2.param_checking_enable" value="config.framework.sf_i2c_v2.param_checking_enable.enabled"/>
     </config>
     <config id="config.driver.icu">
-      <property id="config.driver.icu.param_checking_enable" value="config.driver.icu.param_checking_enable.bsp"/>
+      <property id="config.driver.icu.param_checking_enable" value="config.driver.icu.param_checking_enable.enabled"/>
     </config>
     <config id="config.driver.fmi">
       <property id="config.driver.fmi.param_checking_enable" value="config.driver.fmi.param_checking_enable.bsp"/>
