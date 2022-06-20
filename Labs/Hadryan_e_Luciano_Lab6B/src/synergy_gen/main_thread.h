@@ -63,7 +63,7 @@ void g_sf_touch_panel_err_callback(void *p_instance, void *p_data);
 #ifndef touch_panel_v2_callback
 void touch_panel_v2_callback(sf_touchpanel_v2_callback_args_t *p_args);
 #endif			
-void sf_touch_panel_v2_init(void);
+void sf_touch_panel_init(void);
 extern TX_SEMAPHORE g_main_semaphore_lcdc;
 extern TX_EVENT_FLAGS_GROUP g_touch_event_flags;
 #ifdef __cplusplus

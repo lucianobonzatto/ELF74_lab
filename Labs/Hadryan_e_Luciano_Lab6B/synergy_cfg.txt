@@ -335,7 +335,7 @@ Synergy Configuration
       Thread Priority: 3
       Update Hz: 10
       Touch Coordinate Rotation Angle(Clockwise): 0
-      Name of generated initialization function: sf_touch_panel_v2_init
+      Name of generated initialization function: sf_touch_panel_init
       Auto Initialization: Enable
       Auto Start: Enable
       Name of touchpanel callback function to be defined by user: touch_panel_v2_callback
@@ -355,8 +355,8 @@ Synergy Configuration
           Instance "g_sf_i2c_bus0 I2C Framework Shared Bus on sf_i2c"
             Name: g_sf_i2c_bus0
             
-            Instance "g_i2c I2C Master Driver on r_riic"
-              Name: g_i2c
+            Instance "g_i2 I2C Master Driver on r_riic"
+              Name: g_i2
               Channel: 2
               Rate: Fast-mode
               Slave Address: 0

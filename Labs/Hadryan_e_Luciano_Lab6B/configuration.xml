@@ -186,6 +186,10 @@
       <description>RIIC: Provides=[I2C Master]</description>
       <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_spi" variant="" vendor="Renesas" version="2.2.0">
+      <description>SCI SPI: Provides=[SPI] , Requires=[SCI Common]</description>
+      <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
+    </component>
     <component apiversion="" class="Express Logic" condition="" group="all" subgroup="gx" variant="" vendor="Renesas" version="2.2.0">
       <description>Express Logic GUIX: Provides=[GUIX] , Requires=[ThreadX]</description>
       <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
@@ -197,10 +201,6 @@
     <component apiversion="" class="HAL Drivers" condition="" group="touch panel" subgroup="touch_panel_chip_sx8654" variant="" vendor="Renesas" version="2.2.0">
       <description>TOUCH_PANEL_CHIP_SX8654 Drivers</description>
       <originalPack>Renesas.Synergy_touch_panel_chip_sx8654.2.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_spi" variant="" vendor="Renesas" version="2.2.0">
-      <description>SCI SPI: Provides=[SPI] , Requires=[SCI Common]</description>
-      <originalPack>Renesas.Synergy.2.2.0.pack</originalPack>
     </component>
   </synergyComponentSelection>
   <synergyIcuConfiguration/>
@@ -218,36 +218,36 @@
     <module id="module.driver.fmi_on_fmi.0">
       <property id="module.driver.fmi.name" value="g_fmi"/>
     </module>
-    <module id="module.framework.sf_touch_panel_v2_on_sf_touch_panel_v2.1222976601">
+    <module id="module.framework.sf_touch_panel_v2_on_sf_touch_panel_v2.1607425976">
       <property id="module.framework.sf_touch_panel_v2.name" value="g_sf_touch_panel"/>
       <property id="module.framework.sf_touch_panel_v2.priority" value="3"/>
       <property id="module.framework.sf_touch_panel_v2.update_hz" value="10"/>
       <property id="module.framework.sf_touch_panel_v2.rotation_angle" value="module.framework.sf_touch_panel_v2.rotation_angle.angle0"/>
-      <property id="module.framework.sf_touch_panel_v2.init_function" value="sf_touch_panel_v2_init"/>
+      <property id="module.framework.sf_touch_panel_v2.init_function" value="sf_touch_panel_init"/>
       <property id="module.framework.sf_touch_panel_v2.init" value="module.framework.sf_touch_panel_v2.init.enable"/>
       <property id="module.framework.sf_touch_panel_v2.auto_start" value="module.framework.sf_touch_panel_v2.auto_start.enable"/>
       <property id="module.framework.sf_touch_panel_v2.callback" value="touch_panel_v2_callback"/>
     </module>
-    <module id="module.external.ex_touch_panel_chip_sx8654_on_ex_touch_panel_chip_sx8654.6383987">
+    <module id="module.external.ex_touch_panel_chip_sx8654_on_ex_touch_panel_chip_sx8654.835638284">
       <property id="module.external.ex_touch_panel_chip.name" value="g_touch_panel_chip_sx8654"/>
       <property id="module.external.ex_touch_panel_chip_hsize.hsize_pixels" value="240"/>
       <property id="module.external.ex_touch_panel_chip_vsize.vsize_pixels" value="320"/>
       <property id="module.external.ex_touch_panel_chip_sx8654.port" value="module.external.ex_touch_panel_chip_sx8654.port.PORT_06"/>
       <property id="module.external.ex_touch_panel_chip_sx8654.pin" value="module.external.ex_touch_panel_chip_sx8654.pin.PIN_09"/>
     </module>
-    <module id="module.framework.sf_i2c_on_sf_i2c_v2.1025061788">
+    <module id="module.framework.sf_i2c_on_sf_i2c_v2.138060479">
       <property id="module.framework.sf_i2c_v2.name" value="g_sf_i2c_device0"/>
-      <property id="module.framework.sf_i2c_v2.slave" value="0x4B"/>
+      <property id="module.framework.sf_i2c_v2.slave" value="0x48"/>
       <property id="module.framework.sf_i2c_v2.addr_mode" value="module.framework.sf_i2c_v2.addr_mode.addr_mode_7bit"/>
     </module>
-    <module id="module.framework.sf_i2c_bus_on_sf_i2c_v2.617878827">
+    <module id="module.framework.sf_i2c_bus_on_sf_i2c_v2.677841113">
       <property id="module.framework.sf_i2c_bus_v2.name" value="g_sf_i2c_bus0"/>
     </module>
-    <module id="module.framework.sf_external_irq_on_sf_external_irq.1604147548">
+    <module id="module.framework.sf_external_irq_on_sf_external_irq.268962586">
       <property id="module.framework.sf_external_irq.name" value="g_sf_external_irq0"/>
       <property id="module.framework.sf_external_irq.event" value="module.framework.sf_external_irq.event.button_event_semaphore_put"/>
     </module>
-    <module id="module.driver.external_irq_on_icu.1120750779">
+    <module id="module.driver.external_irq_on_icu.14014299">
       <property id="module.driver.external_irq.name" value="g_external_irq0"/>
       <property id="module.driver.external_irq.channel" value="9"/>
       <property id="module.driver.external_irq.trigger" value="module.driver.external_irq.trigger.trig_falling"/>
@@ -257,8 +257,8 @@
       <property id="module.driver.external_irq.p_callback" value="NULL"/>
       <property id="module.driver.external_irq.irq_ipl" value="board.icu.common.irq.priority3"/>
     </module>
-    <module id="module.driver.i2c_on_riic.1569739299">
-      <property id="module.driver.i2c.name" value="g_i2c"/>
+    <module id="module.driver.i2c_on_riic.317287606">
+      <property id="module.driver.i2c.name" value="g_i2"/>
       <property id="module.driver.i2c.channel" value="2"/>
       <property id="module.driver.i2c.rate" value="module.driver.i2c.rate.rate_fast"/>
       <property id="module.driver.i2c.slave" value="0x00"/>
@@ -271,7 +271,7 @@
       <property id="module.driver.i2c.tei_ipl" value="board.icu.common.irq.priority3"/>
       <property id="module.driver.i2c.eri_ipl" value="board.icu.common.irq.priority3"/>
     </module>
-    <module id="module.driver.transfer_on_dtc.711060540">
+    <module id="module.driver.transfer_on_dtc.1439468443">
       <property id="module.driver.transfer.name" value="g_transfer4"/>
       <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
       <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
@@ -288,7 +288,7 @@
       <property id="module.driver.transfer.p_callback" value="NULL"/>
       <property id="module.driver.transfer.irq_ipl" value="board.icu.common.irq.disabled"/>
     </module>
-    <module id="module.driver.transfer_on_dtc.1554305788">
+    <module id="module.driver.transfer_on_dtc.982575974">
       <property id="module.driver.transfer.name" value="g_transfer5"/>
       <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
       <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
@@ -305,8 +305,8 @@
       <property id="module.driver.transfer.p_callback" value="NULL"/>
       <property id="module.driver.transfer.irq_ipl" value="board.icu.common.irq.disabled"/>
     </module>
-    <module id="module.el.gx.951566768"/>
-    <module id="module.framework.sf_el_gx.1311786659">
+    <module id="module.el.gx.354891653"/>
+    <module id="module.framework.sf_el_gx.1771380244">
       <property id="module.framework.sf_el_gx.name" value="g_sf_el_gx"/>
       <property id="module.framework.sf_el_gx.display_cfg_inheritance" value="module.framework.sf_el_gx.display_cfg_inheritance.layer1"/>
       <property id="module.framework.sf_el_gx.p_callback" value="NULL"/>
@@ -316,7 +316,7 @@
       <property id="module.framework.sf_el_gx.jpegWB_section" value="bss"/>
       <property id="module.framework.sf_el_gx.dave2d_buffer_cache" value="module.framework.sf_el_gx.dave2d_buffer_cache.enable"/>
     </module>
-    <module id="module.driver.display_on_glcd.1639501636">
+    <module id="module.driver.display_on_glcd.1789774260">
       <property id="module.driver.display.name" value="g_display"/>
       <property id="module.driver.display.callback" value="NULL"/>
       <property id="module.driver.display.clksrc" value="module.driver.display.clksrc.clk_src_internal"/>
@@ -501,10 +501,10 @@
       <property id="module.driver.display.underflow_1_ipl" value="board.icu.common.irq.priority3"/>
       <property id="module.driver.display.underflow_2_ipl" value="board.icu.common.irq.priority3"/>
     </module>
-    <module id="module.framework.sf_jpeg_decode.600327235">
+    <module id="module.framework.sf_jpeg_decode.1188141562">
       <property id="module.framework.sf_jpeg_decode.name" value="g_sf_jpeg_decode0"/>
     </module>
-    <module id="module.driver.jpeg_decode.1657129306">
+    <module id="module.driver.jpeg_decode.1493190077">
       <property id="module.driver.jpeg_decode.name" value="g_jpeg_decode0"/>
       <property id="module.driver.jpeg_decode.input_data_format" value="module.driver.jpeg_decode.input_data_format.normal"/>
       <property id="module.driver.jpeg_decode.output_data_format" value="module.driver.jpeg_decode.output_data_format.normal"/>
@@ -514,12 +514,12 @@
       <property id="module.driver.jpeg_decode.jedi_ipl" value="board.icu.common.irq.priority3"/>
       <property id="module.driver.jpeg_decode.jdti_ipl" value="board.icu.common.irq.priority3"/>
     </module>
-    <module id="module.driver.jpeg_common.2035916236">
+    <module id="module.framework.tes.dave2d.1148376068"/>
+    <module id="module.framework.sf_tes_2d_drw.1633988002"/>
+    <module id="module.driver.jpeg_common.2082764980">
       <property id="module.driver.jpeg_common.name" value="g_jpeg_common0"/>
     </module>
-    <module id="module.framework.tes.dave2d.794711790"/>
-    <module id="module.framework.sf_tes_2d_drw.1681581102"/>
-    <module id="module.driver.spi_on_sci_spi.1798413911">
+    <module id="module.driver.spi_on_sci_spi.209761626">
       <property id="module.driver.spi.name" value="g_spi_lcdc"/>
       <property id="module.driver.spi.channel" value="0"/>
       <property id="module.driver.spi.operating_mode" value="module.driver.spi.operating_mode.mode_master"/>
@@ -536,53 +536,53 @@
       <property id="module.driver.spi.eri_ipl" value="board.icu.common.irq.priority3"/>
     </module>
     <context id="_hal.0">
-      <stack module="module.driver.cgc_on_cgc.0"/>
-      <stack module="module.driver.fmi_on_fmi.0"/>
       <stack module="module.driver.ioport_on_ioport.0"/>
+      <stack module="module.driver.cgc_on_cgc.0"/>
       <stack module="module.driver.elc_on_elc.0"/>
+      <stack module="module.driver.fmi_on_fmi.0"/>
     </context>
-    <context id="rtos.threadx.thread.834420505">
+    <context id="rtos.threadx.thread.1850466344">
       <property id="_symbol" value="main_thread"/>
       <property id="rtos.threadx.thread.name" value="Main Thread"/>
       <property id="rtos.threadx.thread.stack" value="2048"/>
-      <property id="rtos.threadx.thread.priority" value="6"/>
+      <property id="rtos.threadx.thread.priority" value="1"/>
       <property id="rtos.threadx.thread.autostart" value="rtos.threadx.thread.autostart.enabled"/>
       <property id="rtos.threadx.thread.timeslice" value="10"/>
-      <stack module="module.framework.sf_touch_panel_v2_on_sf_touch_panel_v2.1222976601">
-        <stack module="module.external.ex_touch_panel_chip_sx8654_on_ex_touch_panel_chip_sx8654.6383987" requires="module.framework.sf_touch_panel_v2_on_sf_touch_panel_v2.requires.ex_touch_chip">
-          <stack module="module.framework.sf_i2c_on_sf_i2c_v2.1025061788" requires="module.external.ex_touch_panel_chip_sx8654.requires.i2c">
-            <stack module="module.framework.sf_i2c_bus_on_sf_i2c_v2.617878827" requires="module.framework.sf_i2c_on_sf_i2c.requires.sf_i2c_bus_v2">
-              <stack module="module.driver.i2c_on_riic.1569739299" requires="module.framework.sf_i2c_on_sf_i2c.requires.i2c">
-                <stack module="module.driver.transfer_on_dtc.711060540" requires="module.driver.i2c_on_riic.requires.transfer_tx"/>
-                <stack module="module.driver.transfer_on_dtc.1554305788" requires="module.driver.i2c_on_riic.requires.transfer_rx"/>
+      <stack module="module.framework.sf_touch_panel_v2_on_sf_touch_panel_v2.1607425976">
+        <stack module="module.external.ex_touch_panel_chip_sx8654_on_ex_touch_panel_chip_sx8654.835638284" requires="module.framework.sf_touch_panel_v2_on_sf_touch_panel_v2.requires.ex_touch_chip">
+          <stack module="module.framework.sf_i2c_on_sf_i2c_v2.138060479" requires="module.external.ex_touch_panel_chip_sx8654.requires.i2c">
+            <stack module="module.framework.sf_i2c_bus_on_sf_i2c_v2.677841113" requires="module.framework.sf_i2c_on_sf_i2c.requires.sf_i2c_bus_v2">
+              <stack module="module.driver.i2c_on_riic.317287606" requires="module.framework.sf_i2c_on_sf_i2c.requires.i2c">
+                <stack module="module.driver.transfer_on_dtc.1439468443" requires="module.driver.i2c_on_riic.requires.transfer_tx"/>
+                <stack module="module.driver.transfer_on_dtc.982575974" requires="module.driver.i2c_on_riic.requires.transfer_rx"/>
               </stack>
             </stack>
           </stack>
-          <stack module="module.framework.sf_external_irq_on_sf_external_irq.1604147548" requires="module.external.ex_touch_panel_chip_sx8654.requires.sf_external_irq">
-            <stack module="module.driver.external_irq_on_icu.1120750779" requires="module.framework.sf_external_irq_on_sf_external_irq.requires.external_irq"/>
+          <stack module="module.framework.sf_external_irq_on_sf_external_irq.268962586" requires="module.external.ex_touch_panel_chip_sx8654.requires.sf_external_irq">
+            <stack module="module.driver.external_irq_on_icu.14014299" requires="module.framework.sf_external_irq_on_sf_external_irq.requires.external_irq"/>
           </stack>
         </stack>
       </stack>
-      <stack module="module.el.gx.951566768">
-        <stack module="module.framework.sf_el_gx.1311786659" requires="module.el.gx.requires.sf_el_gx">
-          <stack module="module.driver.display_on_glcd.1639501636" requires="module.framework.sf_el_gx.requires.display"/>
-          <stack module="module.framework.sf_jpeg_decode.600327235" requires="module.framework.sf_el_gx.requires.sf_jpeg_decode">
-            <stack module="module.driver.jpeg_decode.1657129306" requires="module.framework.sf_jpeg_decode.requires.jpeg_decode">
-              <stack module="module.driver.jpeg_common.2035916236" requires="module.driver.jpeg_decode_on_jpeg_decode.requires.jpeg_common"/>
+      <stack module="module.el.gx.354891653">
+        <stack module="module.framework.sf_el_gx.1771380244" requires="module.el.gx.requires.sf_el_gx">
+          <stack module="module.driver.display_on_glcd.1789774260" requires="module.framework.sf_el_gx.requires.display"/>
+          <stack module="module.framework.sf_jpeg_decode.1188141562" requires="module.framework.sf_el_gx.requires.sf_jpeg_decode">
+            <stack module="module.driver.jpeg_decode.1493190077" requires="module.framework.sf_jpeg_decode.requires.jpeg_decode">
+              <stack module="module.driver.jpeg_common.2082764980" requires="module.driver.jpeg_decode_on_jpeg_decode.requires.jpeg_common"/>
             </stack>
           </stack>
-          <stack module="module.framework.tes.dave2d.794711790" requires="module.framework.sf_el_gx.requires.tes.dave2d">
-            <stack module="module.framework.sf_tes_2d_drw.1681581102" requires="module.framework.tes.dave2d.requires.sf_tes_2d_drw"/>
+          <stack module="module.framework.tes.dave2d.1148376068" requires="module.framework.sf_el_gx.requires.tes.dave2d">
+            <stack module="module.framework.sf_tes_2d_drw.1633988002" requires="module.framework.tes.dave2d.requires.sf_tes_2d_drw"/>
           </stack>
         </stack>
       </stack>
-      <stack module="module.driver.spi_on_sci_spi.1798413911"/>
-      <object id="rtos.threadx.object.semaphore.1325395027">
+      <stack module="module.driver.spi_on_sci_spi.209761626"/>
+      <object id="rtos.threadx.object.semaphore.1260446419">
         <property id="rtos.threadx.object.semaphore.name" value="Main Semaphore"/>
         <property id="rtos.threadx.object.semaphore.symbol" value="g_main_semaphore_lcdc"/>
         <property id="rtos.threadx.object.semaphore.count" value="0"/>
       </object>
-      <object id="rtos.threadx.object.flags.912771191">
+      <object id="rtos.threadx.object.flags.266313657">
         <property id="rtos.threadx.object.flags.name" value="New Event Flags"/>
         <property id="rtos.threadx.object.flags.symbol" value="g_touch_event_flags"/>
       </object>
@@ -653,7 +653,7 @@
       <property id="config.driver.dtc.vector_table" value=".ssp_dtc_vector_table"/>
     </config>
     <config id="config.framework.sf_el_gx">
-      <property id="config.framework.sf_el_gx.param_checking_enable" value="config.framework.sf_el_gx.param_checking_enable.enabled"/>
+      <property id="config.framework.sf_el_gx.param_checking_enable" value="config.framework.sf_el_gx.param_checking_enable.bsp"/>
     </config>
   </synergyModuleConfiguration>
   <synergyPinConfiguration>

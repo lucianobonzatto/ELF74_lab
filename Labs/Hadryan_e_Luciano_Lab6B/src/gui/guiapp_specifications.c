@@ -6,7 +6,7 @@
 /*  GUIX Studio User Guide, or visit our web site at azure.com/rtos            */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.11.0                                              */
-/*  Date (dd.mm.yyyy):  7. 5.2022   Time (hh:mm): 01:08                        */
+/*  Date (dd.mm.yyyy):  9. 6.2022   Time (hh:mm): 22:48                        */
 /*******************************************************************************/
 
 
@@ -206,14 +206,6 @@ GX_WINDOW_PROPERTIES window1_properties =
 {
     0                                        /* wallpaper pixelmap id          */
 };
-GX_WINDOW_PROPERTIES window1_window_properties =
-{
-    0                                        /* wallpaper pixelmap id          */
-};
-GX_WINDOW_PROPERTIES window1_window_1_properties =
-{
-    0                                        /* wallpaper pixelmap id          */
-};
 GX_TEXT_BUTTON_PROPERTIES window1_windowchanger_properties =
 {
     GX_STRING_ID_BUTTON_DISABLED,            /* string id                      */
@@ -245,29 +237,6 @@ GX_PROMPT_PROPERTIES window1_window1_text_properties =
     GX_FONT_ID_PROMPT,                       /* font id                        */
     GX_COLOR_ID_TEXT,                        /* normal text color              */
     GX_COLOR_ID_SELECTED_TEXT                /* selected text color            */
-};
-
-GX_CONST GX_STUDIO_WIDGET window1_window_1_define =
-{
-    "window_1",
-    GX_TYPE_WINDOW,                          /* widget type                    */
-    GX_ID_NONE,                              /* widget id                      */
-    #if defined(GX_WIDGET_USER_DATA)
-    0,                                       /* user data                      */
-    #endif
-    GX_STYLE_BORDER_THIN|GX_STYLE_ENABLED,   /* style flags                    */
-    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
-    sizeof(GX_WINDOW),                       /* control block size             */
-    GX_COLOR_ID_WINDOW_FILL,                 /* normal color id                */
-    GX_COLOR_ID_WINDOW_FILL,                 /* selected color id              */
-    gx_studio_window_create,                 /* create function                */
-    GX_NULL,                                 /* drawing function override      */
-    GX_NULL,                                 /* event function override        */
-    {90, 120, 149, 199},                     /* widget size                    */
-    GX_NULL,                                 /* no next widget                 */
-    GX_NULL,                                 /* no child widgets               */ 
-    offsetof(WINDOW1_CONTROL_BLOCK, window1_window_1), /* control block        */
-    (void *) &window1_window_1_properties    /* extended properties            */
 };
 
 GX_CONST GX_STUDIO_WIDGET window1_window1_text_define =
@@ -362,29 +331,6 @@ GX_CONST GX_STUDIO_WIDGET window1_windowchanger_define =
     (void *) &window1_windowchanger_properties /* extended properties          */
 };
 
-GX_CONST GX_STUDIO_WIDGET window1_window_define =
-{
-    "window",
-    GX_TYPE_WINDOW,                          /* widget type                    */
-    GX_ID_NONE,                              /* widget id                      */
-    #if defined(GX_WIDGET_USER_DATA)
-    0,                                       /* user data                      */
-    #endif
-    GX_STYLE_BORDER_THIN|GX_STYLE_ENABLED,   /* style flags                    */
-    GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
-    sizeof(GX_WINDOW),                       /* control block size             */
-    GX_COLOR_ID_WINDOW_FILL,                 /* normal color id                */
-    GX_COLOR_ID_WINDOW_FILL,                 /* selected color id              */
-    gx_studio_window_create,                 /* create function                */
-    GX_NULL,                                 /* drawing function override      */
-    GX_NULL,                                 /* event function override        */
-    {60, 80, 179, 239},                      /* widget size                    */
-    &window1_windowchanger_define,           /* next widget definition         */
-    &window1_window_1_define,                /* child widget definition        */
-    offsetof(WINDOW1_CONTROL_BLOCK, window1_window), /* control block          */
-    (void *) &window1_window_properties      /* extended properties            */
-};
-
 GX_CONST GX_STUDIO_WIDGET window1_define =
 {
     "window1",
@@ -401,9 +347,9 @@ GX_CONST GX_STUDIO_WIDGET window1_define =
     gx_studio_window_create,                 /* create function                */
     GX_NULL,                                 /* drawing function override      */
     (UINT (*)(GX_WIDGET *, GX_EVENT *)) window1_handler, /* event function override */
-    {0, 0, 239, 319},                        /* widget size                    */
+    {0, 0, 255, 319},                        /* widget size                    */
     GX_NULL,                                 /* next widget                    */
-    &window1_window_define,                  /* child widget                   */
+    &window1_windowchanger_define,           /* child widget                   */
     0,                                       /* control block                  */
     (void *) &window1_properties             /* extended properties            */
 };

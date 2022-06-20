@@ -76,7 +76,7 @@ const sf_external_irq_instance_t g_sf_external_irq0 =
 const i2c_cfg_t g_sf_i2c_device0_i2c_cfg =
 { .channel = g_sf_i2c_bus0_CHANNEL,
   .rate = g_sf_i2c_bus0_RATE,
-  .slave = 0x4B,
+  .slave = 0x48,
   .addr_mode = I2C_ADDR_MODE_7BIT,
   .sda_delay = g_sf_i2c_bus0_SDA_DELAY,
   .p_transfer_tx = g_sf_i2c_bus0_P_TRANSFER_TX,
@@ -90,7 +90,7 @@ const i2c_cfg_t g_sf_i2c_device0_i2c_cfg =
   .p_extend = g_sf_i2c_bus0_P_EXTEND, };
 
 sf_i2c_instance_ctrl_t g_sf_i2c_device0_ctrl =
-{ .p_lower_lvl_ctrl = &g_i2c_ctrl, };
+{ .p_lower_lvl_ctrl = &g_i2_ctrl, };
 const sf_i2c_cfg_t g_sf_i2c_device0_cfg =
 { .p_bus = (sf_i2c_bus_t*) &g_sf_i2c_bus0, .p_lower_lvl_cfg = &g_sf_i2c_device0_i2c_cfg, };
 /* Instance structure to use this module. */
@@ -153,9 +153,9 @@ void g_sf_touch_panel_err_callback_internal(void *p_instance, void *p_data)
 /*******************************************************************************************************************//**
  * @brief     This is sf touch panel initialization function. User Can call this function in the application 
  if required with the below mentioned prototype.
- *            - void sf_touch_panel_v2_init(void)
+ *            - void sf_touch_panel_init(void)
  **********************************************************************************************************************/
-void sf_touch_panel_v2_init(void)
+void sf_touch_panel_init(void)
 {
     ssp_err_t ssp_err_g_sf_touch_panel;
     ssp_err_g_sf_touch_panel = g_sf_touch_panel.p_api->open (g_sf_touch_panel.p_ctrl, g_sf_touch_panel.p_cfg);
@@ -199,7 +199,7 @@ void main_thread_create(void)
 
     UINT err;
     err = tx_thread_create (&main_thread, (CHAR*) "Main Thread", main_thread_func, (ULONG) NULL, &main_thread_stack,
-                            2048, 6, 6, 10, TX_AUTO_START);
+                            2048, 1, 1, 10, TX_AUTO_START);
     if (TX_SUCCESS != err)
     {
         tx_startup_err_callback (&main_thread, 0);
@@ -217,7 +217,7 @@ static void main_thread_func(ULONG thread_input)
     /* Initialize each module instance. */
     /** Call initialization function if user has selected to do so. */
 #if (1)
-    sf_touch_panel_v2_init ();
+    sf_touch_panel_init ();
 #endif
 
     /* Enter user code for this thread. */

@@ -6,7 +6,7 @@
 /*  GUIX Studio User Guide, or visit our web site at azure.com/rtos            */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.11.0                                              */
-/*  Date (dd.mm.yyyy):  7. 5.2022   Time (hh:mm): 01:08                        */
+/*  Date (dd.mm.yyyy):  9. 6.2022   Time (hh:mm): 22:48                        */
 /*******************************************************************************/
 
 
@@ -119,8 +119,6 @@ typedef struct WINDOW2_CONTROL_BLOCK_STRUCT
 typedef struct WINDOW1_CONTROL_BLOCK_STRUCT
 {
     GX_WINDOW_MEMBERS_DECLARE
-    GX_WINDOW window1_window;
-    GX_WINDOW window1_window_1;
     GX_TEXT_BUTTON window1_windowchanger;
     GX_CHECKBOX window1_buttonenable;
     GX_PROMPT window1_instructions;
